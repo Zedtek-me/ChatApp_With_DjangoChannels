@@ -1,0 +1,455 @@
+.header{
+    display:flex;
+    flex-direction: row;
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    flex-wrap:wrap;
+    background-color:rgb(25, 199, 141);
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    height:50px;
+    padding:10px;
+}
+
+/* mobile navigation */
+.mobile-nav{
+    display:none;
+}
+.header .chattie{
+    background-color: rgb(39, 117, 117);
+    color:rgb(255, 255, 255);
+    font-family: dreamy;
+    font-weight: 800;
+    border-radius:20px;
+    border: 2px white solid;
+    padding:8px;
+}
+
+.header .nav > ul{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap:wrap;
+    align-items: center;
+    list-style: none;
+}
+nav a{
+    display: flex;
+    justify-content: space-between;
+    margin:8px;
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 200;
+    font-size:15px;
+    align-self: center;
+    text-decoration: none;
+    text-align: center;
+    padding:auto;
+}
+
+
+.logout{
+    background-color: rgb(39, 117, 117);
+    border: 2px solid white;
+    border-radius:15px;
+    padding: 10px;
+    font-family: dreamy;
+    font-weight:400;
+    width:50px;
+    height: 15px;
+    text-align:center;
+    margin-right:8px;
+    align-self: center;
+}
+/* rooms home styling */
+.room-cont{
+    display:flex;
+    flex-flow: wrap column;
+    align-items: center;
+    justify-content: center;
+    margin-top:100px;
+}
+
+.room-cont h1{
+    margin:auto;
+    align-self: center;
+    font-family: dreamy;
+    font-size: 20px;
+    color: rgb(39, 117, 117);
+}
+.room-cont hr{
+    width:50%;
+    color: aquamarine;
+}
+.all-rooms{
+    display:flex;
+    flex-flow:column wrap;
+    align-items: center;
+    align-content: center;
+    margin:auto;
+    margin-top: 20px;
+    align-self: center;
+}
+ [class=child-room]{
+    display:flex;
+    flex:1;
+    flex-flow: column wrap;
+    align-self: center;
+    align-content: center;
+    justify-content:space-between;
+    padding:10px;
+    margin:10px;
+}
+.child-room .room-type{
+    display: flex;
+    flex-flow:column wrap;
+    margin:auto;
+    align-self:center;
+    text-align: center;
+    padding:3px;
+}
+
+.all-rooms .child-room> .room-type > p> a{
+    text-decoration: none;
+    color:beige;
+    background-color: rgb(39, 117, 117);
+    border: 2px solid rgb(25, 199, 141);;
+    border-radius: 20px;
+    padding:10px;
+}
+
+.all-rooms .child-room img{
+   width:50%;
+   height:20%;
+   border: 2px rgb(39, 117, 117)solid;
+   border-radius: 20px;
+}
+
+/* a styling for the posted items found in both trends.html and profile.html */
+
+
+
+.footer{
+    background:rgb(39, 117, 117);
+    display:flex;
+    flex-flow: nowrap column;
+    align-items:center;
+    width: 100%;
+    height:30vh;
+    overflow-x:hidden;
+    margin-top: 8%;
+    margin-left: 0;
+    margin-right:0;
+    position:static;
+    left:0;
+    bottom:0;
+    right:0;
+}
+.footer .foot-container{
+    color:white;
+    font-family: dreamy;
+    font-weight: 100;
+    font-size:10px;
+    margin:auto;
+    align-self:center;
+    display: flex;
+    flex-flow: nowrap column;
+    padding:10px;
+    text-align:center;
+}
+
+
+.foot-container #alias a{
+    color: rgb(61, 238, 179);
+    text-decoration: none;
+}
+
+.footer .quick-links a {
+    display:flex;
+    flex-flow: column wrap;
+    text-align: left;
+    color:white;
+    font-family: dreamy;
+    font-weight:100;
+    text-decoration: none;
+    justify-content: space-between;
+}
+
+/* styles for profile */
+.profile{
+    display: flex;
+    flex-flow: wrap column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    margin:auto;
+    margin-top: 8%;
+    padding:10px;
+}
+
+.profile>.prof-hero{
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    color:rgb(39, 117, 117);
+}
+
+.profile> .prof-hero ul{
+    list-style: none;
+    display: flex;
+    flex-flow: nowrap row;
+    margin:auto;
+}
+
+.profile>.prof-hero ul>li> a{
+    margin:5px;
+    align-self: center;
+    color:rgb(39, 117, 117);
+    font-family: dreamy;
+    font-size: 25px;
+    text-decoration: none;
+    cursor:pointer;
+}
+.make-post{
+    display:flex;
+    align-self: center;
+    align-items: center;
+    flex-flow: wrap row;
+}
+
+/* for the post box and the upload widget */
+.make-post .post-items{
+   display:flex;
+   flex-flow:column wrap;
+   justify-content: center;
+   margin:auto;
+}
+/* aligning items in the post box */
+.post-items .flex{
+    flex: 1 1 auto;
+}
+
+/* display:grid;
+grid-template-columns: 1fr;
+padding: 5px;
+margin:none; */
+
+/* settings file that replaces the old button */
+
+.settings-cont{
+    display: flex;
+    flex-flow: column wrap;
+    margin:auto;
+    margin-top: 70px;
+    align-items: center;
+    align-content: center;
+    padding:10px;
+    color:rgb(39, 117, 117);
+    width: 100%;
+}
+
+.settings-cont>.info{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    margin:0px;
+    font-family: dreamy;
+    font-size: 25px;
+    font-weight:lighter;
+}
+.heads-up{
+    font-size:15px;
+    font-style: bold;
+}
+
+/* the settings page form element */
+.update-profile{
+    display: flex;
+    flex-flow: column wrap;
+    background-color:rgb(61, 238, 179);
+    color: rgb(27, 85, 85);
+    border: 2px solid rgb(39, 117, 117);
+    border-radius: 10px;
+    font-family: dreamy;
+    font-size:20px;
+    height: 60%;
+    width:50%;
+    padding: 25px;
+    margin-top:20px;
+    justify-content: space-between;
+}
+
+.update-profile .button{
+    background-color: rgb(27, 85, 85);
+    border: 2px solid white;
+    border-radius: 20px;
+    color: white;
+    margin:auto;
+    margin-top:8px;
+    height:35px;
+    width:70px;
+}
+
+.update-profile > .username{
+    border: solid 1px;
+    border-radius: 5%;
+    width:90%;
+    height:40px;
+
+}
+
+/* for the post box itself (or the text input field for post) */
+.make-post .post-widget{
+    height:85px;
+    width:15em;
+    border:solid rgb(61, 238, 179) 2px;
+    border-radius: 5px;
+    margin:auto;
+    padding:8px;
+    margin-bottom:5px;
+}
+
+/* for the button in the btn container only */
+.post-items .post-btn-cont  #post-btn{
+    height:30px;
+    width:10em;
+    border-radius: 5px;
+    color: white;
+    font-family: dreamy;
+    font-weight:500;
+    background-color:  rgb(39, 117, 117);
+    box-shadow: none;
+    margin:none;
+    margin:5px;
+}
+
+.post-items .post-btn-cont .add-image{
+    background-color:rgb(45, 172, 130);
+    border:2px solid rgb(39, 117, 117);
+    border-radius:6px;
+    padding:5px;
+    color:white;
+    transition: all 2s;
+}
+
+.post-items .post-btn-cont .add-image:hover{
+    background-color: rgb(39, 117, 117);
+    border:2px solid rgb(61, 238, 179);
+}
+
+/* for the uploaded images of the user, found in the user_uploads file */
+.uploads{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:4px;
+    padding:5px;
+    margin:auto;
+    justify-content: center;
+    width:100%;
+    height:100%;
+    box-shadow: 2px 2px 2px 1px rgb(39, 117, 117);
+}
+
+.uploads img{
+    display:flex;
+    flex-flow: column wrap;
+    align-content: center;
+    align-items: center;
+    border: 1px solid rgb(39, 117, 117);
+    border-radius:20px;
+
+}
+
+/* for the individual items posted on the userprofile */
+
+.posts{
+    display:flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    padding:5px;
+}
+/* media queries */
+@media screen and (max-width: 715px){
+    .header .nav > ul{
+        display: none;
+    }
+
+    /* links and toggle */
+    .mobile-nav, .mobile-toggle{
+        display:flex;
+        flex-flow: column wrap;
+    }
+    .nav-links{
+        display:none;
+        flex-flow: column wrap;
+        align-items: flex-end;
+        background: rgb(61, 238, 179);
+        max-width: 10px;
+    }
+    .nav-links .nav-items{
+        display:none;
+        flex-flow:column wrap;
+        align-items: flex-end;
+        list-style: none;
+        color:white;
+        font-family: dreamy;
+    }
+    .mobile-nav .mobile-toggle> div{
+        background:white;
+        margin:2px;
+        width:25px;
+        height:5px;
+    }
+    /* foooter */
+    .footer{
+        top:2;
+        bottom:0;
+        left:0;
+        right:0;
+        height:40vh;
+        width:100vw;
+        margin-top:5%;
+        padding:0px;
+    }
+
+    .footer .quick-links{
+        margin-top:-2px;
+    }
+    /* rooms */
+    .all-rooms{
+        margin-left: 8%;
+    }
+    .child-room {
+        margin:auto;
+        align-items: center;
+        align-content: center;
+        align-self: center;
+    }
+
+    .child-room img{
+        width:50%;
+        height:50%;
+    }
+    img#general{
+       width:40px;
+        height:40px;
+    }
+
+    .prof-hero{
+        margin-top:20%;
+    }
+
+    .user-img .prof-img{
+        width:100%; height:100%;border:2px solid rgb(39, 117, 117); border-radius:50%
+    }
+}
+

@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+
+{%block title%}
+Settings
+{%endblock%}
+
+{%block body%}
+<div class="settings-cont">
+    <div class="info">
+        <p id="info">Would you like to change your username or profile picture?</p>
+        <h6 id="do-here">Do that here:</h6>
+        <em class="heads-up">after updating your profile and the image doesn't display, refresh the page, and your image will appear.</em>
+    </div>
+    
+    <form action="" method='post' class="update-profile" enctype="multipart/form-data">
+        {%csrf_token%}
+        <!-- for username -->
+        <label for="username" id="uname">Username:</label>
+        <input type="text" placeholder="type your new username here..." class="username" name='username' value="">
+        <!-- for image -->
+        <input type="file" accept="image/*" class="image"  name='image' value="" >
+        <input type="submit" class="button" name='image' value='Save'>
+    </form>
+</div>
+<script>
+
+// function displayImg(event){
+//         var form= document.querySelector('.update-profile')
+//         img= event.target.files[0]
+//         form.appendChild(img)
+// }
+</script>
+{%endblock%}

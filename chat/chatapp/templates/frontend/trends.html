@@ -1,0 +1,242 @@
+
+{%extends 'base.html'%}
+{%block title%}
+Trends
+{%endblock%}
+
+
+{%block body%}
+<div class="user-name" > {{name}} </div>
+
+<head>
+    <style>
+        .all-trends{
+            display: block;
+            margin:auto;
+            padding:15px;
+            padding-top:4%;
+        }
+    
+        .all-trends > div{
+            display: flex;
+            flex-flow: wrap column;
+            align-items: center;
+            justify-content: center;
+            width:70%;
+            height:70%;
+            box-shadow: 1px 2px 10px 1px rgb(39, 117, 117);
+            box-sizing:border-box;
+            font-family: dreamy;
+            margin:auto;
+            margin-top:3%;
+            padding:20px;
+        }
+
+        .all-trends > div #title{
+            align-self : center;
+            border-bottom:solid 2px black;
+            font-size: medium;
+            margin:5px;
+        }
+
+        .all-trends > div img{
+            width: 80%;
+            height:40%;
+            margin:5px;
+            border-radius: 10px;
+        }
+
+        .all-trends > div .description{
+            align-self: center;
+            flex-grow: 1;
+            flex-basis: 2px;
+            margin:5px;
+            line-height: 0.9cm;
+        }
+
+        .all-trends > div #read-more{
+            text-align: center;
+            border: 2px solid rgb(25, 199, 141);
+            border-radius:15px;
+            background-color: rgb(39, 117, 117);
+            text-decoration: none;
+            color:white;
+            padding:10px;
+            margin:5px;
+        }
+
+        .upperTrends{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-content: space-between;
+        }
+
+        .upperTrends .chatty{
+            display: flex;
+            background-color: rgb(39, 117, 117);
+            color:rgb(255, 255, 255);
+            font-family: dreamy;
+            font-weight: 800;
+            border-radius:50%;
+            border: 4px rgb(25, 199, 141) solid;
+            padding:8px;
+            width: 100px;
+            height: 100px;
+            margin:30px;
+            margin-top: 100px;
+            justify-content: center;
+            align-items: center;
+            animation-name: chatty;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-timing-function:linear;
+            cursor: pointer;
+        }
+
+        .happening-div{
+            box-shadow: none;
+            display:flex;
+            flex-flow:wrap column;
+            padding:none;
+            font-family:dreamy;
+            color:rgb(39, 117, 117);
+            text-align: center;
+            font-size:15px;
+            margin-top:10%;
+            margin-right:70%;
+        }
+        .happening-div #htbr{
+            height:5px;
+            width:160%;
+            background-color:rgb(25, 199, 141);
+            margin:none;
+        }
+        .happening-div> .happenings{
+            margin-right: auto;
+        }
+
+        @media screen and (max-width:715px){
+            .all-trends{
+                margin:auto;
+                padding:5px;
+                width:90vw;
+            }
+            .all-trends > div{
+                width:100%;
+                height:100%;
+                margin:auto;
+                margin-left:0px;
+            }
+
+            .all-trends div > .description{
+                line-height:0.5cm;
+                font-family: dreamy;
+                font-weight: lighter;
+            }
+            .footer{
+                top:2;
+                bottom:0;
+                left:0;
+                height:40vh;
+                width:100vw;
+                margin-top:5%;
+                padding:0px;
+            }
+
+            .footer .footer-container, .quick-links{
+                margin:0px;
+            }
+
+            .upperTrends> .happening-div, .happenings, #htbr, .suggestion{
+                margin-top: 20%;
+                margin:auto;
+                margin-right: 0px;
+            }
+
+            .happenings, .happening-div #htbr{
+                margin:auto;
+            }
+
+            .upperTrends .chatty{
+                display: none;
+            }
+
+        }
+
+        @keyframes chatty{
+            from {
+                transform: rotate(0deg)
+            }
+            to {
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+    <script src='../../static/frontend/src/trends.js'></script>
+</head>
+
+<div class="upperTrends">
+    <div class="happening-div">
+        <h1 class="happenings">What's Happening Today...</h1>
+        <hr id="htbr">
+        <em class="suggestion"> Go to "Rooms" through the link in the navigation bar; pick a room of your choice, and start connecting with others.</em>
+    </div>
+    <!-- for animation of chatty -->
+    <div class="chatty">
+        <p id="chatty">CHATTIE</p>
+    </div>
+</div>
+
+<div class="all-trends">
+    <div class="posts">
+        {%for item in post%}
+        {%if item.image%}
+        <p class="postDate">Posted on {{item.date}}, by {{user}}(me)</p>
+        <div class="writeup">
+            <p class="content">{{item.content}}</p>
+        </div>
+        <img src="{{item.image.url}}" alt="posted-item" class="posted-img">
+        {%else%}
+        <p class="postDate">Posted on {{item.date}}</p>
+        <div class="writeup">
+            <p class="content">{{item.content}}</p>
+        </div>
+        <!-- <img src="{{item.image.url}}" alt="posted-item" class="posted-img"> -->
+        {%endif%}
+        {%endfor%}
+    </div>
+</div>
+
+<!-- this was the script I tried to use to get usernames at the top of the navigation, at first. -->
+<script>
+    // function userName(){
+    //     var person= document.querySelector('.user-name')
+        
+    //     fetch('/api/users').then((response)=>{
+    //         let data= response.json()
+    //         return data
+    //     }).then((users)=>users.forEach(user => {
+    //         if (user.username === person.textContent){
+    //             console.log(person.textContent)
+    //             return person.textContent= user.username
+    //         }
+    //     }));
+    // }
+    
+    // userName()
+
+    const checkPost=()=>{
+        let postDiv= document.querySelector('.posts')
+        let trenCon= document.querySelector('.all-trends')
+        postDiv.setAttribute('STYLE','')
+        console.log(postDiv,trenCon, postDiv.attributes)
+        if (postDiv.children===null){
+            trenCon.removeChild(postDiv)
+        }
+
+    }
+    checkPost()
+</script>
+{%endblock%}
+
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%} Base {%endblock%}</title>
+    <link rel="stylesheet" href="../../static/frontend/css/base.css" type='text/css'>
+    <link rel="stylesheet" href="../../static/frontend/css/index.css" type='text/css'>
+    <link rel="icon" href="../../static/frontend/img/ZEDTEK.png" type='img/png'>
+    <script src="https://kit.fontawesome.com/b7a792697d.js" crossorigin="anonymous"></script>
+    <script src="../../static/frontend/src/base.js"></script>
+</head>
+<body>
+    
+    <!-- the header section -->
+    {%block header%}
+    <header class="header">
+        <a href=''><img src="../../static/frontend/img/ZEDTEK.png" alt="logo" class='logo' style='height:40px; width:60px; border-radius:20px; background-color: white;'></a>
+        <nav class='nav'>
+            <ul class='nav-items'>
+                <li><a href="http://localhost:8000/logout/" class='logout'><i class="fas fa-sign-out-alt" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Logout</a></li>
+                <li><a href="http://localhost:8000/chat/trend/"><i class="fas fa-cloud-sun-rain" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Trendings</a></li>
+                <li><a href="http://localhost:8000/chat/rooms"><i class="fas fa-person-booth" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Rooms</a></li>
+                <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  {%block user%}Me{%endblock%}</a></li>
+            </ul>
+        </nav>
+        <!-- for mobile -->
+        <div class='mobile-nav'>
+            <div class='mobile-toggle' onclick='toggle()'>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="nav-links" >            
+                <ul class='nav-items'>
+                    <li><a href="http://localhost:8000/logout/" class='logout'><i class="fas fa-sign-out-alt" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Logout</a></li>
+                    <li><a href="http://localhost:8000/chat/trend/"><i class="fas fa-cloud-sun-rain" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Trendings</a></li>
+                    <li><a href="http://localhost:8000/chat/rooms"><i class="fas fa-person-booth" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Rooms</a></li>
+                    <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    {%endblock%}
+    <!--custom contents in the body -->
+    {%block script%}
+    
+    {%endblock%}
+    {%block body%}
+    <div class="body">
+
+    </div>
+    {%endblock%}
+</body>
+<footer class="footer">
+    <div class="foot-container">
+        <h1 id="by">Designed and built by ZECHARIAH, a.k.a <span id="alias"><a href="https://github.com/zedtek-me"> ZEDTEK.</a></span> </h1>
+        <h1 id="copywright">Copywright <i class="far fa-copyright"></i> 2022</h1>
+    </div>
+    <div class="quick-links">
+        <a href="/api/" class="api">API</a>
+        <a href="https://zedtek.com.ng" class="my-site">Developer's Blog</a>
+    </div>
+</footer>
+</html>

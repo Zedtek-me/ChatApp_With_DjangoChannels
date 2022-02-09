@@ -1,0 +1,38 @@
+{%extends 'home_header.html'%}
+{%block title%}
+Sign Up
+{%endblock%}
+
+
+{%block body%}
+<div class="login-container">
+    <span class="Welcome"><h1 id="wel-text"> Welcome To Chattie</h1></span>
+    <hr id='break'>
+    <div class="flash">
+        {%if message%}
+        <ul>
+            {%for items in message%}
+            <h3 class={{items.level}}>{{items}}</h3>
+            {%endfor%}
+        </ul>
+        {%endif%}
+    </div>
+    <div class="input-cont signup-cont">
+        <form action="" class="form" method='POST'>
+            {%csrf_token%}
+            <h3 class="guide">Please fill in the details below.</h3>
+            <div class="user-details">
+                <label for="name">Name:</label> <input type="text" id="name" placeholder="Type in your name" name='name' value='' required>
+                <label for="surname">Other Name:</label> <input type="text" id="surname" placeholder="other name like surname..." name='surname' value='' required>
+                <label for="username">Username:</label> <input type="text" id="username" placeholder="Username" name='username' value='' required>
+                <label for="Email">Email:</label> <input type="email" id="email" placeholder="type your email..." name='email' value=''>
+                <label for="pass">password:</label> <input type="password" id="password" placeholder="type your pass..." name='pass1' value='' required>
+                <label for="confirm">Confirm Pass:</label> <input type="password" id="confirmation" placeholder="type in the password again..." name='pass_confirmation' value='' required>
+            </div>
+            <div class="btn-div">
+                <input type="submit" id="signup-btn" name='sign up' value='sign up'>
+            </div>
+        </form>
+    </div>
+</div>
+{%endblock%}

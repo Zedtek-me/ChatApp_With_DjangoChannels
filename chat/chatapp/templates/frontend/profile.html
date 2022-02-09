@@ -1,0 +1,77 @@
+{%extends 'base.html'%}
+{%block title%}
+Profile
+{%endblock%}
+
+{%block body%}
+<div class="profile">
+    <div class="prof-hero">
+        {%if message%}
+            {% for msg in message%}
+            <div class="{{msg.level}}" style= 'margin-bottom:5px;'>
+               {{ msg }}
+            </div>
+            {%endfor%}
+        {%endif%}
+        <div class="user-img">
+            {%if user.userprofile.image%}
+            <img src='{{user.userprofile.image.url}}' alt="Profile Photo" class="prof-img" style='width:40%; height:40%;border:2px solid rgb(39, 117, 117); border-radius:50%'>
+            {%else%}
+            <img src=" ../../../Media/default.jpg" alt="Profile Photo" class="prof-img" style='width:40%; height:40%;border:2px solid rgb(39, 117, 117); border-radius:50%'>
+            {%endif%}
+        </div>
+        <div class="username">
+            <h1 id="user-name">{{user}}</h1>
+        </div>
+        <ul class="quick-links">
+            <li id="links"><a href="/settings" id="settings"><i class="fas fa-cogs"></i> Settings</a> | </li>
+            <li id="links"><a href="/uploaded" id="photos"><i class="fas fa-images"></i> photos</a> | </li>
+        </ul>
+        <hr id="hero-separ">
+    </div>
+    <!-- Now Timelines and others -->
+    <div class="make-post">
+        <div class="post-items">
+            <form action="" method='post' class="post-form flex" enctype="multipart/form-data">
+                {%csrf_token%}
+                <textarea class="post-widget" name='post-widget' value='' placeholder="Say Something; anything...?" rows="50" cols="20"></textarea> 
+                <input type="file" accept="image/*" class="upload" name='upload' style="margin:auto; display:none">
+                <button class="hidden-btn" type="submit" name="submit" style="display:none;"></button>
+            </form>
+            <div class="post-btn-cont flex">
+                <input type="submit" id="post-btn" name="Post" value="Post" onclick="postSubmit()">
+                <input type='submit'name="add-image" value="Add image" class='add-image' onclick="getFile()">
+            </div>
+        </div>
+       
+    </div>
+    <em id="instruction">posts you make will appear here on your timeline, and on <a href='http://localhost:8000/trend' id='trends-quic-link'>Trendings...</a></em>
+    <!-- now the posted items -->
+    <div class="posts">
+        {%for item in post%}
+        {%if item.image%}
+        <p class="postDate">Posted on {{item.date}}</p>
+        <div class="writeup">
+            <p class="content">{{item.content}}</p>
+        </div>
+        <img src="{{item.image.url}}" alt="posted-item" class="posted-img">
+        {%else%}
+        <p class="postDate">Posted on {{item.date}}</p>
+        <div class="writeup">
+            <p class="content">{{item.content}}</p>
+        </div>
+        <!-- <img src="{{item.image.url}}" alt="posted-item" class="posted-img"> -->
+        {%endif%}
+        {%endfor%}
+    </div>
+</div>
+<script>
+    // displays the uploaded file (image file)
+    // const displayImage = (event)=>{
+    //     var picture= event.target.files[0]
+    //     let postContent= document.querySelector('.post-widget').value
+    //     profileImage.src= URL.createObjectURL(picture)
+        
+    // }
+</script>
+{%endblock%}

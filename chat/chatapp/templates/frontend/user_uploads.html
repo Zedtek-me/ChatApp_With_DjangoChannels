@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+{%block title%}
+My pictures
+{%endblock%}
+<!-- body -->
+{%block body%}
+<div class="uploads">
+    {%for img in uploaded%}
+    <div class="my-img">
+        <img src="{{img.image.url}}" alt="my image" id="myImage">
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}

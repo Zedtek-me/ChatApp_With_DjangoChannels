@@ -1,0 +1,37 @@
+{%extends 'home_header.html'%}
+{%block title%}
+Welcome
+{%endblock%}
+{%block signin%} {%endblock%}
+<!-- the login form  -->
+
+{%block body%}
+
+<div class="login-container">
+    <span class="Welcome"><h1 id="wel-text"> Welcome To Chattie</h1></span>
+    <hr id='break'>
+    <div class="flash">
+        {%if message%}
+        <ul>
+            {%for items in message%}
+            <h3 class='{{items.level}}'>{{items}}</h3>
+            {%endfor%}
+        </ul>
+        {%endif%}
+    </div>
+    <div class="input-cont">
+        <form action="" class="form" method='POST'>
+            {%csrf_token%}
+            <h3 class="guide">Please fill in your details, otherwise, sign up!</h3>
+            <div class="user-details">
+                <label for="username">Username:</label> <input type="text" id="name" placeholder="Username or Name" name='name' value=''>
+                <label for="pass">password:</label> <input type="password" id="password" placeholder="type your pass..." name='pass' value=''>
+            </div>
+            <div class="btn-div">
+                <input type="submit" id="login-btn" name='login' value='log in'>  
+                <input type="submit" id="signup-btn" name='sign up' value='sign up'>
+            </div>
+        </form>
+    </div>
+</div>
+{%endblock%}

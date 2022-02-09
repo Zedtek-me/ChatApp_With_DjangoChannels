@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}  {%endblock%}</title>
+    <link rel="stylesheet" href="../../static/frontend/css/base_room.css" type='text/css'>
+    <link rel="stylesheet" href="../../static/frontend/css/base.css" type='text/css'>
+    <link rel="icon" href="../../static/frontend/img/ZEDTEK.png" type='img/png'>
+    <script src='../../static/frontend/src/room_scripts.js'></script>
+    <script src="https://kit.fontawesome.com/b7a792697d.js" crossorigin="anonymous"></script>
+    <script src="../../static/frontend/src/base.js"></script>
+</head>
+<body class="room-body">
+    <header class="header">
+        <a href=''><img src="../../static/frontend/img/ZEDTEK.png" alt="logo" class='logo' style='height:40px; width:60px; border-radius:20px; background-color: white;'></a>
+        <nav class='nav'>
+            <ul class='nav-items'>
+                <li><a href="http://localhost:8000/chat/" class='logout'>Log out</a></li>
+                <li><a href="http://localhost:8000/chat/trend/"><i class="far fa-cloud-moon"></i>Trendings</a></li>
+                <li><a href="http://localhost:8000/chat/rooms"><i class="fal fa-booth-curtain"></i>Rooms</a></li>
+                <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle"></i>{{user}}</a></li>
+            </ul>
+        </nav>
+        <!-- for mobile -->
+        <div class='mobile-nav'>
+            <div class='mobile-toggle' onclick='toggle()'>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="nav-links" >            
+                <ul class='nav-items'>
+                    <li><a href="http://localhost:8000/logout/" class='logout'><i class="fas fa-sign-out-alt" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Logout</a></li>
+                    <li><a href="http://localhost:8000/chat/trend/"><i class="fas fa-cloud-sun-rain" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Trendings</a></li>
+                    <li><a href="http://localhost:8000/chat/rooms"><i class="fas fa-person-booth" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Rooms</a></li>
+                    <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- a div for those connected to a room -->
+    <div class="connected-ones">
+        <h3 id="people">People connected</h3>
+        <hr style='width:20em;height:2px; background-color:rgb(39, 117, 117); border:none;margin-top:-10px;'>
+        <div class="list">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+        </div>
+        <div class="typing">
+            <h5 id='typing'>Someone is typing...</h5>
+        </div>
+    </div>
+    <!-- all chat messages and funtionalities below. -->
+    <div class="body-items">
+        <div class="chat-cont">
+
+        </div><br>
+        <div class="input-cont">
+            <textarea class="msg-box" name='msg-box' value='' placeholder="type your messages here..." rows=10 cols="10" oninput="checkTyping()"></textarea>
+            <span id="btn-icon" onclick='sendText()' onkeyup="keyEvent()">
+                <i class="fas fa-paper-plane"></i><h3 id="send-txt">Send</h3>
+            </span>
+        </div>
+    </div>
+</body>
+<footer class="footer">
+    <div class="foot-container">
+        <h1 id="by">Designed and built by ZECHARIAH, a.k.a <span id="alias"><a href="https://github.com/zedtek-me"> ZEDTEK.</a></span> </h1>
+        <h1 id="copywright">Copywright <i class="far fa-copyright"></i> 2022</h1>
+    </div>
+</footer>
+</html>

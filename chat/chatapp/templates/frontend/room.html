@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+{%block title%}
+Explore rooms
+{%endblock%}
+
+
+{%block body%}
+<div class="room-cont">
+    <h1 class="room-tag">All Rooms</h1>
+    <hr class="horiz">
+    <div class="all-rooms">
+        <div class="child-room">
+            <img src="../../static/frontend/img/general.png" alt="General" style='width:100%; height: 25%;' id= 'general'>
+            <div class="room-type">
+                <p class="phil-txt"><a href="http://localhost:8000/gen/">General</a></p>
+                <em class="describe">We Talk about general topics in here...</em>
+            </div>
+        </div>
+
+        <div class="child-room">
+            <img src="../../static/frontend/img/philosophy.jpg" alt="Philosophy" id='philosophy'>
+            <div class="room-type">
+                <p class="phil-txt"><a href="http://localhost:8000/phil/">Philosophy</a></p>
+                <em class="describe">Everything Philosophical is talked about here...</em>
+            </div>
+        </div>
+    
+        <div class="child-room">
+            <img src="../../static/frontend/img/relationship.jpg" alt="Relationship" style='width:90%;' id='relationship'>
+            <div class="room-type">
+                <p class="rel-txt"><a href="http://localhost:8000/rel/">Relationships</a></p>
+                <em class="describe">People talk about relationship in here...</em>
+            </div>
+        </div>
+
+        <div class="child-room">
+            <img src="../../static/frontend/img/science.jpg" alt="Science" id='smaller' style='width:105%;' id='science'>
+            <div class="room-type">
+                <p class="rel-txt"><a href="http://localhost:8000/science/">Science</a></p>
+                <em class="describe">People talk about everything Scientific matters in here...</em>
+            </div>
+        </div>
+
+        <div class="child-room">
+            <img src="../../static/frontend/img/personality.jpg" alt="Personality" style='width:68%;' id='personality'>
+            <div class="room-type">
+                <p class="rel-txt"><a href="http://localhost:8000/person/">Personality Theories</a></p>
+                <em class="describe">People talk about personality theories and interpersonal topics in here...</em>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,110 @@
+.login-container{
+    display:flex;
+    flex-flow: column wrap;
+    place-content: center center;
+    padding:10px;
+    margin:auto;
+    margin-top: 70px;
+}
+.login-container span >h1{
+    color:rgb(39, 117, 117);
+    font-family: dreamy;
+    font-weight: 200;
+    align-self: center;
+}
+.login-container #break{
+    margin-left:10px;
+    margin-top:1px;
+    width:18%;
+    height:2px;
+    background-color:rgb(25, 199, 141);
+}
+.input-cont{
+    background-color:rgb(39, 117, 117);
+    width:600px;
+    height:50vh;
+    border:2px rgb(25, 199, 141) dotted;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: wrap column;
+    color:white;
+    padding:30px;
+    align-items:center;
+    margin:auto;
+    margin-top:30px;
+    align-self:center;
+}
+
+.input-cont .form{
+    display: flex;
+    flex-flow: wrap column;
+    align-items: center;
+    align-content:center;
+    margin:auto;
+    font-family: dreamy;
+    font-weight: 100;
+    align-self: center;
+}
+
+.form .user-details{
+    margin-right:auto;
+    display: grid;
+    grid-template-columns: 1fr 100%;
+    gap:8px;
+}
+.form .user-details> input{
+    border:1px solid;
+    border-radius: 10px;
+    width:auto;
+    height:40px;
+    margin:10px;
+}
+.form .btn-div{
+    display: flex;
+    flex-direction: row;
+    margin:auto;
+    margin-top:20px;
+    margin-left:auto;
+}
+.form .btn-div input{
+    width:80px;
+    padding:7px;
+    margin:5px;
+    border:2px solid white;
+    border-radius:10px;
+    background-color: rgb(25, 199, 141);
+    color: white;
+    font-family: dreamy;
+    font-weight: 600;
+    font-size:20px;
+    transition:all 1s;
+}
+
+.form .user-details> label{
+    margin-top:20px;
+    font-family: dreamy;
+    font-size: 20px;
+}
+.form .btn-div input:hover{
+    background-color: rgb(39, 117, 117);
+    border-color:rgb(25, 199, 141) ;
+}
+
+/* for sign up page */
+
+.signup-cont{
+    height:80vh;
+    width: 800px;
+}
+
+/* media queries */
+
+@media only screen and (max-width:715px){
+    .login-container{
+        margin:auto;
+        margin-top:70px;
+    }
+    .login-container #break{
+        width:70%;
+    }
+}
