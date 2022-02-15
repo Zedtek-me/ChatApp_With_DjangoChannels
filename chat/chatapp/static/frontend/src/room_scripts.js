@@ -1,6 +1,5 @@
 // getting the room name from the url 
 var roomUrl= window.location.pathname
-console.log(roomUrl)
 
 // dynamically creating an endpoint
 const host= window.location.host
@@ -12,9 +11,6 @@ const socket= new WebSocket(endPoint)
 // inserting the data from the server into the chatbox
 socket.onmessage= function(event){
     let data= JSON.parse(event.data)
-    console.log(data.message)
-    console.log(data.user)
-    console.log(data.image)
     var chatContainer= document.querySelector(".chat-cont")
     var paragAndImg= document.createElement('DIV')
     paragAndImg.setAttribute('class', 'img-msg')
@@ -25,7 +21,8 @@ socket.onmessage= function(event){
     var paragraph= document.createElement("P")
     paragraph.setAttribute('id', 'response')
     paragraph.setAttribute('onopen', '')
-    paragraph.textContent=data.user + ': ' + data.message
+    paragraph.innerHTML="<b class='u-name'>" + data.user + "</b>" + ': ' + data.message
+    console.log(paragraph.innerHTML)
     paragAndImg.appendChild(img)
     paragAndImg.appendChild(paragraph)
 

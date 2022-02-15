@@ -54,6 +54,14 @@
     font-size:20px;
 }
 
+.u-name{
+    background-color: rgb(16, 161, 113);
+    border:2px solid white;
+    border-radius:10px;
+    color:rgb(21, 31, 31);
+    padding:5px;
+}
+
 /* the parent to the chat buttons and text input fields */
 .body-items > div.input-cont{
     display:flex;
