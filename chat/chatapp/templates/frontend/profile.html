@@ -8,16 +8,16 @@ Profile
     <div class="prof-hero">
         {%if message%}
             {% for msg in message%}
-            <div class="{{msg.level}}" style= 'margin-bottom:5px;'>
+            <div class="{{msg.level}}" style= 'margin-bottom:10px;'>
                {{ msg }}
             </div>
             {%endfor%}
         {%endif%}
         <div class="user-img">
             {%if user.userprofile.image%}
-            <img src='{{user.userprofile.image.url}}' alt="Profile Photo" class="prof-img" style='width:40%; height:40%;border:2px solid rgb(39, 117, 117); border-radius:50%'>
+            <img src='{{user.userprofile.image.url}}' alt="Profile Photo" class="prof-img" style='width:50%; height:20%;border:2px solid rgb(39, 117, 117); border-radius:50%'>
             {%else%}
-            <img src=" ../../../Media/default.jpg" alt="Profile Photo" class="prof-img" style='width:40%; height:40%;border:2px solid rgb(39, 117, 117); border-radius:50%'>
+            <img src=" ../../../Media/default.jpg" alt="Profile Photo" class="prof-img" style='width:50%; height:50%;border:2px solid rgb(39, 117, 117); border-radius:50%'>
             {%endif%}
         </div>
         <div class="username">
@@ -49,29 +49,41 @@ Profile
     <!-- now the posted items -->
     <div class="posts">
         {%for item in post%}
-        {%if item.image%}
-        <p class="postDate">Posted on {{item.date}}</p>
-        <div class="writeup">
-            <p class="content">{{item.content}}</p>
+        <div class="post-cont">
+            {%if item.image%}
+            <p class="postDate">Posted on {{item.date}}, by {{item.owner}}(me)</p>
+            <img src="{{item.image.url}}" alt="posted-item" class="posted-img">
+            <div class="writeup">
+                <p class="content">{{item.content}}</p>
+            </div>
+            {%else%}
+            <p class="postDate">Posted on {{item.date}}, by {{item.owner}}(me)</p>
+            <div class="writeup">
+                <p class="content">{{item.content}}</p>
+            </div>
+            {%endif%}
         </div>
-        <img src="{{item.image.url}}" alt="posted-item" class="posted-img">
-        {%else%}
-        <p class="postDate">Posted on {{item.date}}</p>
-        <div class="writeup">
-            <p class="content">{{item.content}}</p>
-        </div>
-        <!-- <img src="{{item.image.url}}" alt="posted-item" class="posted-img"> -->
-        {%endif%}
         {%endfor%}
     </div>
 </div>
 <script>
-    // displays the uploaded file (image file)
+    // preview the uploaded file (image file)
     // const displayImage = (event)=>{
     //     var picture= event.target.files[0]
     //     let postContent= document.querySelector('.post-widget').value
     //     profileImage.src= URL.createObjectURL(picture)
         
     // }
+
+// display a file element when an image is added to a post.
+const file= ()=>{
+    file_el= document.getElementsByClassName('upload')[0]
+    file_el.addEventListener('change',
+    ()=> {file_el.style.display='flex';
+    file_el.style.margin='auto';
+    file_el.style.justifyContent='center'})
+    }
+
+    file()
 </script>
 {%endblock%}

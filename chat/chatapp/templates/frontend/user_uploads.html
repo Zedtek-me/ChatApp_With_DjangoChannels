@@ -8,6 +8,7 @@ My pictures
     {%for img in uploaded%}
     <div class="my-img">
         <img src="{{img.image.url}}" alt="my image" id="myImage">
+        <i class="post-date" style="color:rgb(184, 186, 189); font-family: dreamy;">posted on: {{img.date}}</i>
     </div>
     {%endfor%}
 </div>

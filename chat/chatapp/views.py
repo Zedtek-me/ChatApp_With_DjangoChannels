@@ -2,7 +2,7 @@ from email import message
 from email.mime import image
 import re
 from django.shortcuts import render, redirect
-from .models import UserProfile, UploadedImage, Post
+from .models import UserProfile, UploadedImage, Post, Messages
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
@@ -76,7 +76,7 @@ def log_out(request):
     user=request.user
     print(user)
     logout(request)
-    return redirect('http://localhost:8000')
+    return redirect('/chat/')
 
 # check whether it's an update or not (in profile)
 @login_required(login_url='/chat')
@@ -85,19 +85,27 @@ def my_profile(request):
     if request.method == 'POST':
         file= request.FILES.get('upload')
         posted_items= request.POST.get('post-widget')
+        # to post both contents and images
         if file and posted_items:
             post= Post(owner=user, content=posted_items, image=file)
-            post.save()
+            post.save(update_fields=['content', 'image'])
+            store_img= UploadedImage(user=user, image=file)
+            store_img.save()
             messages.success(request, 'You Just Posted An Item Now!')
             return redirect('/profile/')
+        # to post only content if no file was attached to the post
         elif posted_items and not file:
             post= Post(owner=user, content=posted_items)
-            post.save()
+            post.save(update_fields=['content'])
+            post.image.delete()
             messages.success(request, 'You Just Posted An Item Without an Image Now!')
             return redirect('/profile/')
+        # to post just file(image file), if content is not posted.
         else:
             post= Post(owner=user, content='', image=file)
-            post.save()
+            post.save(update_fields=['image'])
+            store_img= UploadedImage(user=user, image=file)
+            store_img.save()
             messages.success(request, 'You Just Posted an Image Now!')
             return redirect('/profile/')
     msg= messages.get_messages(request)
@@ -126,6 +134,7 @@ def forgot_pass(request):
 
 
 # Seeing user uploaded images
+@login_required(login_url='/chat/')
 def uploaded(request):
     user= request.user
     myImages= user.uploadedimage_set.all()
@@ -140,11 +149,15 @@ def settings(request):
         # get the new username and image
         username= request.POST.get('username')
         image= request.FILES.get('image')
+        # check if anything was uploaded at all before splitting the extension from an image
+        if image:
+            global image_name
+            image_name, extension= os.path.splitext(str(image.name))
         # updating
         if username:
             newName= User.objects.get(username=user)
             newName.username= username
-            newName.save()
+            newName.save(update_fields=['username'])
             # checking if the user uploaded a photo and whether the profile image of the user has not been manually deleted by an operator
             if image and newName.userprofile.image:
                 # if the above condition is true, store a list of all profile photo in a variable 
@@ -152,41 +165,54 @@ def settings(request):
                 # and it also has the name of the current userprofile image. If so, delete the current image from
                 # the profile photo folder and remove it from being the profile image of the user. Then use the new one.This is to avoid duplicates, and to save space
                 profile_photos= os.listdir('Profile_Media/profile_pics')
-                if image in profile_photos and bool(str(newName.userprofile.image.url).split(image)):
+                if bool(str(newName.userprofile.image).split(image_name)):
                     # delete the present image associated with the user from the app storage and remove its association with profile.
                     print(image)
-                    os.remove(newName.userprofile.image.path)
-                    newName.userprofile.image.delete()
-                    print('image removed from both folder and profile')
+                    # newName.userprofile.image.delete()
+
                     # now getting the profile of the user and adding the uploaded image to the profile.
                     Img_user= UserProfile.objects.get(user=newName)
                     Img_user.image=image
-                    Img_user.save()
+                    Img_user.save(update_fields=['image'])
+                    # saving into uploaded image database
+                    store_img= UploadedImage(user=user, image=image)
+                    store_img.save()
                     messages.info(request, 'Your profile has been updated. Reload now.')
                     return redirect('/profile/')
                 Img_user= UserProfile.objects.get(user=newName)
                 Img_user.image=image
-                Img_user.save()
+                Img_user.save(update_fields=['image'])
+                # saving into uploaded image database
+                store_img= UploadedImage(user=user, image=image)
+                store_img.save()
                 messages.info(request, 'Your profile has been updated. You can reload.')
                 return redirect('/profile/')
+            messages.info(request, 'Your username was changed successfully!')
             return redirect('/profile/')
-        else:
+        elif image:
             profile_photos= os.listdir('Profile_Media/profile_pics')
-            if image in profile_photos and bool(str(user.userprofile.image.url)):
+            if bool(str(user.userprofile.image).split(image_name)):
                 # delete the present image associated with the user from the app storage and remove its association.
-                os.remove(user.userprofile.image.path)
-                user.userprofile.image.delete()
+                # user.userprofile.image.delete()
                 # now getting the profile of the user and adding the uploaded image to the profile.
                 Img_user= UserProfile.objects.get(user=user)
                 Img_user.image=image
-                Img_user.save()
-                messages.info(request, 'Your profile has been updated. Reload now.')
+                Img_user.save(update_fields=['image'])
+                # saving into uploaded image database
+                store_img= UploadedImage(user=user, image=image)
+                store_img.save()
+                messages.info(request, 'Your Image was changed successfully. Reload now.')
                 return redirect('/profile/')
-            print(user)
             Img_user= UserProfile.objects.get(user=user)
             Img_user.image=image
-            Img_user.save()
-            messages.info(request, 'Your profile has been updated. You can reload.')
+            Img_user.save(update_fields=['image'])
+            # saving into uploaded image database
+            store_img= UploadedImage(user=user, image=image)
+            store_img.save()
+            messages.info(request, 'Your Image was changed successfully. You can reload.')
+            return redirect('/profile/')
+        else:
+            messages.info(request, 'Nothing was changed.' )
             return redirect('/profile/')
     return render(request, 'settings.html', {'user':user})
 
@@ -194,17 +220,17 @@ def settings(request):
 @login_required(login_url='/chat/')
 def science(request):
     user= request.user
-    return render(request, 'forgot_pass.html', {'user':user})
+    return render(request, 'science.html', {'user':user})
 
 @login_required(login_url='/chat/')
 def general(request):
     user= request.user
-    return render(request, 'forgot_pass.html', {'user':user})
+    return render(request, 'general.html', {'user':user})
 
 @login_required(login_url='/chat/')
 def personality(request):
     user= request.user
-    return render(request, 'forgot_pass.html', {'user':user})
+    return render(request, 'personality.html', {'user':user})
 
 @login_required(login_url='/chat/')
 def relationship(request):

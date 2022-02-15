@@ -1,13 +1,12 @@
-
+<!-- extending from base.html -->
 {%extends 'base.html'%}
+
+<!-- for custom title -->
 {%block title%}
 Trends
 {%endblock%}
-
-
+<!--custom body -->
 {%block body%}
-<div class="user-name" > {{name}} </div>
-
 <head>
     <style>
         .all-trends{
@@ -188,23 +187,26 @@ Trends
 </div>
 
 <div class="all-trends">
-    <div class="posts">
-        {%for item in post%}
+    
+</div>
+<h5 class="trend-heads-up" style="color:darkgrey; font-family: dreamy; margin:auto;margin-left:45%;margin-top:20px; font-weight: lighter;">items You post start from here...</h5>
+<div class="posts">
+    {%for item in post%}
+    <div class="post-cont">
         {%if item.image%}
-        <p class="postDate">Posted on {{item.date}}, by {{user}}(me)</p>
-        <div class="writeup">
-            <p class="content">{{item.content}}</p>
-        </div>
+        <p class="postDate">Posted on {{item.date}}, by {{item.owner}}(me)</p>
         <img src="{{item.image.url}}" alt="posted-item" class="posted-img">
-        {%else%}
-        <p class="postDate">Posted on {{item.date}}</p>
         <div class="writeup">
             <p class="content">{{item.content}}</p>
         </div>
-        <!-- <img src="{{item.image.url}}" alt="posted-item" class="posted-img"> -->
+        {%else%}
+        <p class="postDate">Posted on {{item.date}}, by {{item.owner}}(me)</p>
+        <div class="writeup">
+            <p class="content">{{item.content}}</p>
+        </div>
         {%endif%}
-        {%endfor%}
     </div>
+    {%endfor%}
 </div>
 
 <!-- this was the script I tried to use to get usernames at the top of the navigation, at first. -->

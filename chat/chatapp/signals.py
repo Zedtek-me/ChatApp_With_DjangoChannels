@@ -15,7 +15,10 @@ def create_profile(sender, instance, created, **kwargs):
 # signal for getting all uploaded images by the profile table of the user
 
 @receiver(post_save, sender=UserProfile)
-def user_uploads(sender, instance, created, **kwargs):
+def user_uploads(sender, instance, created, update_fields, **kwargs):
     if created:
         upload= UploadedImage(user=instance.user, image=instance.image)
+        upload.save()
+    elif update_fields:
+        upload= UploadedImage(**update_fields)
         upload.save()

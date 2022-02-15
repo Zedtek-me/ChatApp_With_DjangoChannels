@@ -128,9 +128,6 @@ nav a{
    border-radius: 20px;
 }
 
-/* a styling for the posted items found in both trends.html and profile.html */
-
-
 
 .footer{
     background:rgb(39, 117, 117);
@@ -345,26 +342,34 @@ margin:none; */
 }
 
 /* for the uploaded images of the user, found in the user_uploads file */
+
+/* first parent */
 .uploads{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap:4px;
+    display:flex;
+    flex-flow: row wrap;
     padding:5px;
     margin:auto;
+    margin-top:15%;
     justify-content: center;
-    width:100%;
-    height:100%;
-    box-shadow: 2px 2px 2px 1px rgb(39, 117, 117);
+    align-content: center;
 }
 
-.uploads img{
-    display:flex;
-    flex-flow: column wrap;
-    align-content: center;
+/* second parent container */
+.my-img{
+    display: flex;
+    flex-flow:column wrap;
+    justify-content: center;
     align-items: center;
-    border: 1px solid rgb(39, 117, 117);
-    border-radius:20px;
+    flex:1 1 0;
+}
 
+/* actual item (image) */
+.my-img img{
+    width:30%;
+    height:30%;
+    border: 2px solid rgb(39, 117, 117);
+    border-radius:20%;
+    flex:1 1 0;
 }
 
 /* for the individual items posted on the userprofile */
@@ -377,6 +382,53 @@ margin:none; */
     margin:auto;
     padding:5px;
 }
+
+.posts > div{
+    display: flex;
+    flex-flow: wrap column;
+    align-items: center;
+    justify-content: center;
+    width:70%;
+    height:70%;
+    box-shadow: 1px 2px 10px 1px rgb(39, 117, 117);
+    box-sizing:border-box;
+    font-family: dreamy;
+    margin:auto;
+    margin-top:3%;
+    padding:20px;
+}
+
+.posts > div .postDate{
+    align-self:center;
+    justify-self:center;
+    background-color: rgb(39, 117, 117);
+    color: white;
+    font-family:dreamy;
+    border:solid 1px light-green;
+    border-radius:10px;
+    padding:7px;
+}
+
+.posts > div .writeup{
+    align-self: center;
+    flex-grow: 1;
+    flex-basis: 2px;
+    margin:5px;
+    line-height: 0.9cm;
+}
+.posts > div .posted-img{
+    width: 80%;
+    height:40%;
+    margin:5px;
+    border-radius: 10px;
+    cursor:pointer;
+}
+.trend-heads-up{
+    color:darkgrey; 
+    font-family: dreamy; 
+    margin:auto;
+    font-weight:lighter;}
+    
 /* media queries */
 @media screen and (max-width: 715px){
     .header .nav > ul{
@@ -416,7 +468,7 @@ margin:none; */
         left:0;
         right:0;
         height:40vh;
-        width:100vw;
+        width:100%;
         margin-top:5%;
         padding:0px;
     }
@@ -450,6 +502,25 @@ margin:none; */
 
     .user-img .prof-img{
         width:100%; height:100%;border:2px solid rgb(39, 117, 117); border-radius:50%
+    }
+
+    /* custom posts */
+    .posts{
+        margin:auto;
+        padding:5px;
+        width:90vw;
+    }
+    .posts > div{
+        width:100%;
+        height:100%;
+        margin:auto;
+        margin-left:0px;
+    }
+
+    .posts > .div .writeup{
+        line-height:0.5cm;
+        font-family: dreamy;
+        font-weight: lighter;
     }
 }
 

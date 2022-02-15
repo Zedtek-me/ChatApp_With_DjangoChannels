@@ -17,6 +17,7 @@
     justify-content: center;
 }
 
+/* the 'is typing functionality' */
 .typing{
     display:none;
     flex-flow: column wrap;
@@ -33,11 +34,12 @@
     -ms-grid-row-align: 5px;
     align-content: center;
     margin:auto;
-    margin-top:40%;
-    height:150px;
+    margin-top:15%;
+    height:20%;
     padding: auto;
 }
 
+/* the chat container itself. */
 .body-items> .chat-cont{
     display: flex;
     flex-flow: column nowrap;
@@ -52,49 +54,74 @@
     font-size:20px;
 }
 
-.body-items .input-cont{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    align-items: center;
+/* the parent to the chat buttons and text input fields */
+.body-items > div.input-cont{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-between;
     align-content: center;
-    justify-content: center space-around;
     padding: 2px;
     margin:auto;
-    margin-bottom:19%;
+    /* margin-bottom:25%; */
     font-family: dreamy;
     font-size:20px;
-    max-width: 600px;
+    /* max-width: 1000px; */
     background-color: rgb(17, 172, 120);
-    border-radius:20px;
+    border-radius:1%;
 }
 
-.chat-cont>#response{
+/* the container holding both the image and the messages in the chat room */
+.chat-cont > .img-msg{
+    display:flex;
+    flex-flow:column wrap;
+    justify-content: center;
+    font-family: dreamy;
+    background-color: rgb(39, 117, 117);
+    color:white;
+    border:1px solid rgb(17, 172, 120);
+    border-radius: 15px;
+    max-width: 50%;
+}
+
+/* the picture attached to the chat messages, itself. */
+.img-msg #chat-pic{
+    width:27px;
+    height:27px;
+    border-radius:50%;
+}
+/* .chat-cont>#response{
     border:1px solid rgb(17, 172, 120);
     border-radius: 15px;
     max-width: 40%;
     background-color: rgb(39, 117, 117);
     color:white;
     font-family: dreamy;
-    padding:3px;
-}
+    padding:5px;
+} */
 
+
+/* the text area where messages are typed */
 .body-items .msg-box{
     border: 2px solid rgb(39, 117, 117);
-    border-radius: 8px;
+    border-radius: 45px;
     width:500px;
     height:60px;
+    padding:20px;
+    font-family: dreamy;
+    color:rgb(39, 117, 117);
 }
+
+/* the span container for the button and its icon */
 .input-cont> #btn-icon{
     display: flex;
     flex-flow: row wrap;
     background-color: rgb(39, 117, 117);
-    border-radius:8px;
+    border-radius:45px;
     justify-content: center;
-    align-self: center;
     /* justify-self: flex-end; */
     padding:none;
     height:30%;
-    width:55%;
+    width:20%;
     color:white;
     font-family: dreamy;
     border:solid 4px white;
@@ -126,8 +153,7 @@
         width: 100%;
     }
     .room-body .body-items{
-        margin-top:125%;
-        
+        margin-top:30%;
     }
     .body-items .chat-cont{
         width:80%;
@@ -154,10 +180,11 @@
         width:100%;
     }
     .footer{
-        margin-top: 20em;
+        margin-top: 5%;
+        margin-bottom:0px;
         bottom:0;
-        width:100rem;
-        height:10vh;
+        width:100%;
+        height:40vh;
         padding:0px;
     }
 }

@@ -11,30 +11,41 @@ const socket= new WebSocket(endPoint)
 
 // inserting the data from the server into the chatbox
 socket.onmessage= function(event){
-    console.log(event)
+    let data= JSON.parse(event.data)
+    console.log(data.message)
+    console.log(data.user)
+    console.log(data.image)
     var chatContainer= document.querySelector(".chat-cont")
+    var paragAndImg= document.createElement('DIV')
+    paragAndImg.setAttribute('class', 'img-msg')
+    var img= document.createElement('IMG')
+    img.setAttribute('src', '')
+    img.setAttribute('id', 'chat-pic')
+    img.src=  data.image
     var paragraph= document.createElement("P")
     paragraph.setAttribute('id', 'response')
     paragraph.setAttribute('onopen', '')
-    paragraph.textContent=event.data
+    paragraph.textContent=data.user + ': ' + data.message
+    paragAndImg.appendChild(img)
+    paragAndImg.appendChild(paragraph)
 
     // checking whether the message has been seen or not.
     if(paragraph.textContent && !paragraph.onopen){
         msg=document.createElement('P')
         msg.textContent= "Some messages unread."
         chatContainer.appendChild(msg)
-        chatContainer.appendChild(paragraph)
+        chatContainer.appendChild(paragAndImg)
+
         setTimeout(()=> chatContainer.removeChild(msg), 2*1000)
     }else {
         setTimeout(()=> chatContainer.removeChild(msg), 2*1000)
     }
-    console.log(chatContainer)
 }
 
 // send text data to the server
 function sendText(){
     let text= document.getElementsByClassName("msg-box")[0]
-    socket.send(text.value)
+    socket.send(JSON.stringify({message: text.value}))
     text.value=""
 }
 // keyboard enter key
