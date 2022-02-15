@@ -114,6 +114,15 @@ Trends
             margin-right: auto;
         }
 
+        .trend-heads-up{
+            color:darkgrey; 
+            font-family: dreamy; 
+            margin:auto;
+            margin-left:45%;
+            margin-top:20px; 
+            font-weight: lighter;
+        }
+
         @media screen and (max-width:715px){
             .all-trends{
                 margin:auto;
@@ -160,6 +169,10 @@ Trends
                 display: none;
             }
 
+            .trend-heads-up{
+                margin-left:30%;
+            }
+
         }
 
         @keyframes chatty{
@@ -189,7 +202,7 @@ Trends
 <div class="all-trends">
     
 </div>
-<h5 class="trend-heads-up" style="color:darkgrey; font-family: dreamy; margin:auto;margin-left:45%;margin-top:20px; font-weight: lighter;">items You post start from here...</h5>
+<h5 class="trend-heads-up">items you post start from here...</h5>
 <div class="posts">
     {%for item in post%}
     <div class="post-cont">
@@ -227,6 +240,7 @@ Trends
     
     // userName()
 
+    // to detect whether to display a post container in the trends field or not.
     const checkPost=()=>{
         let postDiv= document.querySelector('.posts')
         let trenCon= document.querySelector('.all-trends')
