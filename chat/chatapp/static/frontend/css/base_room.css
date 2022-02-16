@@ -29,10 +29,11 @@
 
 /* body container and items styling */
 .body-items{
-    display: grid;
-    grid-template-columns: 1fr;
-    -ms-grid-row-align: 5px;
-    align-content: center;
+    display: flex;
+    flex-flow:column wrap;
+    justify-content:center;
+    align-items: center;
+    height:600px;
     margin:auto;
     margin-top:15%;
     padding: auto;
@@ -45,12 +46,13 @@
     overflow-y:scroll;
     box-shadow: 2px 2px 15px 10px rgb(39, 117, 117);
     width:50%;
-    height:50%;
+    height:70%;
     border-radius:20px;
     margin:auto;
     padding-left:10px;
     font-family: dreamy;
     font-size:20px;
+    flex:1 1 0;
 }
 
 /* the username in the message(chat container)box, gotten from the frontend */
@@ -62,20 +64,20 @@
     padding:5px;
 }
 
-/* the parent to the chat buttons and text input fields */
+/* the parent to the chat buttons and text area fields */
 .body-items > div.input-cont{
     display:flex;
     flex-flow:row wrap;
     justify-content: center;
     align-items: center;
     margin:auto;
-    padding:5px;
-    /* margin-bottom:25%; */
     font-family: dreamy;
     font-size:10px;
-    width:25%;
+    width:35%;
+    height:5%;
     background-color: rgb(17, 172, 120);
     border-radius:45px;
+    flex:1 1 0;
 }
 
 /* the container holding both the image and the messages in the chat room */
@@ -116,14 +118,14 @@
     background-color: rgb(39, 117, 117);
     border-radius:45px;
     justify-content: center;
-    padding:none;
-    height:30%;
+    align-items: center;
+    height:15%;
     width:20%;
     color:white;
     font-family: dreamy;
     border:solid 4px white;
-    margin-top:20px;
     cursor:pointer;
+    padding:5px;
 }
 
 /* footer */
