@@ -14,7 +14,7 @@ Welcome
         {%if message%}
         <ul>
             {%for items in message%}
-            <h3 class='{{items.level}}'>{{items}}</h3>
+            <h3 {%if items.tags%} class='{{items.tags}}' {%endif%}>{{items}}</h3>
             {%endfor%}
         </ul>
         {%endif%}

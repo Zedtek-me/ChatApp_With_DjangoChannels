@@ -8,7 +8,7 @@ Profile
     <div class="prof-hero">
         {%if message%}
             {% for msg in message%}
-            <div class="{{msg.level}}" style= 'margin-bottom:10px;'>
+            <div {%if msg.tags%} class="{{msg.tags}}"{%endif%} style= 'margin-bottom:10px;'>
                {{ msg }}
             </div>
             {%endfor%}
