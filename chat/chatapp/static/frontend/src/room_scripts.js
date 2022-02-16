@@ -11,31 +11,34 @@ const socket= new WebSocket(endPoint)
 // inserting the data from the server into the chatbox
 socket.onmessage= function(event){
     let data= JSON.parse(event.data)
-    var chatContainer= document.querySelector(".chat-cont")
-    var paragAndImg= document.createElement('DIV')
-    paragAndImg.setAttribute('class', 'img-msg')
-    var img= document.createElement('IMG')
-    img.setAttribute('src', '')
-    img.setAttribute('id', 'chat-pic')
-    img.src=  data.image
-    var paragraph= document.createElement("P")
-    paragraph.setAttribute('id', 'response')
-    paragraph.setAttribute('onopen', '')
-    paragraph.innerHTML="<b class='u-name'>" + data.user + "</b>" + ': ' + data.message
-    console.log(paragraph.innerHTML)
-    paragAndImg.appendChild(img)
-    paragAndImg.appendChild(paragraph)
+    // checking if a message is contained in the sent data
+    if (data.message){
+        var chatContainer= document.querySelector(".chat-cont")
+        var paragAndImg= document.createElement('DIV')
+        paragAndImg.setAttribute('class', 'img-msg')
+        var img= document.createElement('IMG')
+        img.setAttribute('src', '')
+        img.setAttribute('id', 'chat-pic')
+        img.src=  data.image
+        var paragraph= document.createElement("P")
+        paragraph.setAttribute('id', 'response')
+        paragraph.setAttribute('onopen', '')
+        paragraph.innerHTML="<b class='u-name'>" + data.user + "</b>" + ': ' + data.message
+        console.log(paragraph.innerHTML)
+        paragAndImg.appendChild(img)
+        paragAndImg.appendChild(paragraph)
 
-    // checking whether the message has been seen or not.
-    if(paragraph.textContent && !paragraph.onopen){
-        msg=document.createElement('P')
-        msg.textContent= "Some messages unread."
-        chatContainer.appendChild(msg)
-        chatContainer.appendChild(paragAndImg)
+        // checking whether the message has been seen or not.
+        if(paragraph.textContent && !paragraph.onopen){
+            msg=document.createElement('P')
+            msg.textContent= "Some messages unread."
+            chatContainer.appendChild(msg)
+            chatContainer.appendChild(paragAndImg)
 
-        setTimeout(()=> chatContainer.removeChild(msg), 2*1000)
-    }else {
-        setTimeout(()=> chatContainer.removeChild(msg), 2*1000)
+            setTimeout(()=> chatContainer.removeChild(msg), 2*1000)
+        }else {
+            setTimeout(()=> chatContainer.removeChild(msg), 2*1000)
+        }
     }
 }
 

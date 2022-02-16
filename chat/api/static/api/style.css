@@ -1,0 +1,14 @@
+.nav{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(42, 187, 139);
+    list-style: none;
+}
+
+.links a{
+    text-decoration: none;
+    color: white;
+    font-family: dreamy;
+}

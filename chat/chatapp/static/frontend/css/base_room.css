@@ -35,7 +35,6 @@
     align-content: center;
     margin:auto;
     margin-top:15%;
-    height:20%;
     padding: auto;
 }
 
@@ -45,8 +44,8 @@
     flex-flow: column nowrap;
     overflow-y:scroll;
     box-shadow: 2px 2px 15px 10px rgb(39, 117, 117);
-    width:50em;
-    height:20em;
+    width:50%;
+    height:50%;
     border-radius:20px;
     margin:auto;
     padding-left:10px;
@@ -54,6 +53,7 @@
     font-size:20px;
 }
 
+/* the username in the message(chat container)box, gotten from the frontend */
 .u-name{
     background-color: rgb(16, 161, 113);
     border:2px solid white;
@@ -66,16 +66,16 @@
 .body-items > div.input-cont{
     display:flex;
     flex-flow:row wrap;
-    justify-content: space-between;
-    align-content: center;
-    padding: 2px;
+    justify-content: center;
+    align-items: center;
     margin:auto;
+    padding:5px;
     /* margin-bottom:25%; */
     font-family: dreamy;
-    font-size:20px;
-    /* max-width: 1000px; */
+    font-size:10px;
+    width:25%;
     background-color: rgb(17, 172, 120);
-    border-radius:1%;
+    border-radius:45px;
 }
 
 /* the container holding both the image and the messages in the chat room */
@@ -97,36 +97,25 @@
     height:27px;
     border-radius:50%;
 }
-/* .chat-cont>#response{
-    border:1px solid rgb(17, 172, 120);
-    border-radius: 15px;
-    max-width: 40%;
-    background-color: rgb(39, 117, 117);
-    color:white;
-    font-family: dreamy;
-    padding:5px;
-} */
-
 
 /* the text area where messages are typed */
 .body-items .msg-box{
     border: 2px solid rgb(39, 117, 117);
     border-radius: 45px;
-    width:500px;
-    height:60px;
+    width:200px;
+    height:30px;
     padding:20px;
     font-family: dreamy;
     color:rgb(39, 117, 117);
 }
 
-/* the span container for the button and its icon */
-.input-cont> #btn-icon{
+/* the container for the button and its icon */
+.input-cont> .btn-icon{
     display: flex;
     flex-flow: row wrap;
     background-color: rgb(39, 117, 117);
     border-radius:45px;
     justify-content: center;
-    /* justify-self: flex-end; */
     padding:none;
     height:30%;
     width:20%;

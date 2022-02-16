@@ -27,6 +27,9 @@ class Messages(models.Model):
     def __str__(self):
         return self.room_messages
 
+    def __str__(self):
+        return self.sender.username
+
 # getting all of the images uploaded by the user for display in a template.
 class UploadedImage(models.Model):
     user= models.ForeignKey(User, on_delete=models.CASCADE)

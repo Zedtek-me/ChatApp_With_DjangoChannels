@@ -15,4 +15,4 @@ class UserSerializer(serializers.ModelSerializer):
 class MessagesSerializer(serializers.ModelSerializer):
     class Meta:
         model= Messages
-        fields= ('room', 'sender')
+        fields= '__all__'
