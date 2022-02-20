@@ -8,7 +8,7 @@
 }
 .login-container span >h1{
     color:rgb(39, 117, 117);
-    font-family: dreamy;
+    font-family: roboto;
     font-weight: 200;
     align-self: center;
 }
@@ -41,7 +41,7 @@
     align-items: center;
     align-content:center;
     margin:auto;
-    font-family: dreamy;
+    font-family: roboto;
     font-weight: 100;
     align-self: center;
 }
@@ -74,7 +74,7 @@
     border-radius:10px;
     background-color: rgb(25, 199, 141);
     color: white;
-    font-family: dreamy;
+    font-family: roboto;
     font-weight: 600;
     font-size:20px;
     transition:all 1s;
@@ -82,7 +82,7 @@
 
 .form .user-details> label{
     margin-top:20px;
-    font-family: dreamy;
+    font-family: roboto;
     font-size: 20px;
 }
 .form .btn-div input:hover{

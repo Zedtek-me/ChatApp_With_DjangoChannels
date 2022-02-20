@@ -1,15 +1,16 @@
 
 // for mobile display
 function toggle(){
-    const toggleDiv= document.querySelector(".nav-links")
-    const links= document.querySelector(".nav-items")
-    if (toggleDiv.style.display === "none"){
-        toggleDiv.style.display = "flex"
-        links.style.display = "flex"
+    const toggleDiv= document.querySelector(".mobile-toggle")
+    const linksCont= document.querySelector(".nav")
+    const navItems= document.querySelector('.nav-items')
+    if (linksCont.style.display === "none"){
+       linksCont.style.display = "flex"
+        navItems.style.display = "flex"
     }
     else{
-        toggleDiv.style.display = "none";
-        links.style.display = "none"
+        linksCont.style.display = "none";
+        navItems.style.display = "none";
     }
     
 }

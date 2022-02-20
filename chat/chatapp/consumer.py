@@ -17,8 +17,9 @@ class ConsumerServer(AsyncWebsocketConsumer):
         user= self.scope["user"]
         user_img_url= await sync_to_async(self.get_user_img_url)(user)
         message= json.loads(text_data)
+        print(message)
         if message:
-            await sync_to_async(self.save_messages)(tdata=text_data, sender=self.scope.get('user'))
+            await sync_to_async(self.save_messages)(tdata=message["message"], sender=self.scope.get('user'))
             await self.channel_layer.group_send('Philosophy',{'type': 'main.rcv',
             "message" : message['message'],'user':user.username, 'image': user_img_url })
             # print(text_data)

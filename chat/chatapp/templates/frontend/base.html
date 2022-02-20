@@ -22,26 +22,26 @@
                 <li><a href="http://localhost:8000/logout/" class='logout'><i class="fas fa-sign-out-alt" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Logout</a></li>
                 <li><a href="http://localhost:8000/chat/trend/"><i class="fas fa-cloud-sun-rain" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Trendings</a></li>
                 <li><a href="http://localhost:8000/chat/rooms"><i class="fas fa-person-booth" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Rooms</a></li>
-                <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  {%block user%}{{user}}{%endblock%}</a></li>
+                <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>{{user}}</a></li>
             </ul>
         </nav>
-        <!-- for mobile -->
-        <div class='mobile-nav'>
-            <div class='mobile-toggle' onclick='toggle()'>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="nav-links" >            
-                <ul class='nav-items'>
-                    <li><a href="http://localhost:8000/logout/" class='logout'><i class="fas fa-sign-out-alt" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Logout</a></li>
-                    <li><a href="http://localhost:8000/chat/trend/"><i class="fas fa-cloud-sun-rain" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Trendings</a></li>
-                    <li><a href="http://localhost:8000/chat/rooms"><i class="fas fa-person-booth" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Rooms</a></li>
-                    <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>{{user}}</a></li>
-                </ul>
-            </div>
-        </div>
     </header>
+    <!-- for mobile -->
+    <div class='mobile-toggle' onclick='toggle()'>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class='mobile-nav'>
+        <div class="nav-links" >            
+            <ul class='nav-items'>
+                <li><a href="http://localhost:8000/logout/" class='logout'><i class="fas fa-sign-out-alt" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Logout</a></li>
+                <li><a href="http://localhost:8000/chat/trend/"><i class="fas fa-cloud-sun-rain" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Trendings</a></li>
+                <li><a href="http://localhost:8000/chat/rooms"><i class="fas fa-person-booth" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Rooms</a></li>
+                <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>{{user}}</a></li>
+            </ul>
+        </div>
+    </div>
     {%endblock%}
     <!--custom contents in the body -->
     {%block script%}

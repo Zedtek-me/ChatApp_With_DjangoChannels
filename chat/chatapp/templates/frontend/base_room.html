@@ -17,10 +17,10 @@
         <a href=''><img src="../../static/frontend/img/ZEDTEK.png" alt="logo" class='logo' style='height:40px; width:60px; border-radius:20px; background-color: white;'></a>
         <nav class='nav'>
             <ul class='nav-items'>
-                <li><a href="http://localhost:8000/chat/" class='logout'>Log out</a></li>
-                <li><a href="http://localhost:8000/chat/trend/"><i class="far fa-cloud-moon"></i>Trendings</a></li>
-                <li><a href="http://localhost:8000/chat/rooms"><i class="fal fa-booth-curtain"></i>Rooms</a></li>
-                <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle"></i>{{user}}</a></li>
+                <li><a href="http://localhost:8000/logout/" class='logout'><i class="fas fa-sign-out-alt" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Logout</a></li>
+                <li><a href="http://localhost:8000/chat/trend/"><i class="fas fa-cloud-sun-rain" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Trendings</a></li>
+                <li><a href="http://localhost:8000/chat/rooms"><i class="fas fa-person-booth" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Rooms</a></li>
+                <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>{{user}}</a></li>
             </ul>
         </nav>
         <!-- for mobile -->
@@ -35,7 +35,7 @@
                     <li><a href="http://localhost:8000/logout/" class='logout'><i class="fas fa-sign-out-alt" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Logout</a></li>
                     <li><a href="http://localhost:8000/chat/trend/"><i class="fas fa-cloud-sun-rain" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Trendings</a></li>
                     <li><a href="http://localhost:8000/chat/rooms"><i class="fas fa-person-booth" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Rooms</a></li>
-                    <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Me</a></li>
+                    <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>{{user}}</a></li>
                 </ul>
             </div>
         </div>
@@ -54,7 +54,17 @@
     <!-- all chat messages and funtionalities below. -->
     <div class="body-items">
         <div class="chat-cont">
-            
+            {%block messages%}
+            <em class="prev-msg" style="color:rgb(133, 130, 127); font-weight: lighter;font-size:10px; margin:auto;margin-bottom:opx;">previous messages</em>
+            {%for message in msgs%}
+            {%if message.room_messages != ''%}
+            <div class="img-msg">
+                <img src="{{message.sender.userprofile.image.url}}" id="chat-pic" alt="">
+                <p id="response" onopen=""><b class="u-name">{{message.sender}}:</b> {{message.room_messages}}</p>
+            </div>
+            {%endif%}
+            {%endfor%}
+            {%endblock%}
         </div><br>
         <div class="input-cont">
             <textarea class="msg-box" name='msg-box' value='' placeholder="type your messages here..." rows=10 cols="10" oninput="checkTyping()"></textarea>

@@ -113,7 +113,7 @@ def my_profile(request):
     return render(request, 'profile.html', {'user' :user,'message':msg, 'post':post})
         
 
-# the base room
+# the base room options
 @login_required(login_url='/chat/')
 def rooms(request):
     user= request.user
@@ -220,24 +220,35 @@ def settings(request):
 @login_required(login_url='/chat/')
 def science(request):
     user= request.user
+    if user.messages_set.all():
+        msgs= Messages.objects.all()
+        return render(request, 'science.html', {'user':user, 'msgs': msgs})
     return render(request, 'science.html', {'user':user})
-
 @login_required(login_url='/chat/')
 def general(request):
     user= request.user
+    if user.messages_set.all():
+        msgs= Messages.objects.all()
+        return render(request, 'general.html', {'user':user, 'msgs': msgs})
     return render(request, 'general.html', {'user':user})
-
 @login_required(login_url='/chat/')
 def personality(request):
     user= request.user
+    if user.messages_set.all():
+        msgs= Messages.objects.all()
+        return render(request, 'personality.html', {'user':user, 'msgs': msgs})
     return render(request, 'personality.html', {'user':user})
-
 @login_required(login_url='/chat/')
 def relationship(request):
     user= request.user
+    if user.messages_set.all():
+        msgs= Messages.objects.all()
+        return render(request, 'relationship.html', {'user':user, 'msgs': msgs})
     return render(request, 'relationship.html', {'user':user})
-
 @login_required(login_url='/chat/')
 def philosophy(request):
     user= request.user
+    if user.messages_set.all():
+        msgs= Messages.objects.all()
+        return render(request, 'philosophy.html', {'user':user, 'msgs': msgs})
     return render(request, 'philosophy.html', {'user':user})
