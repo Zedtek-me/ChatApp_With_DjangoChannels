@@ -24,8 +24,8 @@ class Messages(models.Model):
     room_messages=models.CharField(max_length=50000000000000)
     sender=models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.room_messages
+    # def __str__(self):
+    #     return self.room_messages
 
     def __str__(self):
         return self.sender.username

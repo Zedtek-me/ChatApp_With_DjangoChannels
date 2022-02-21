@@ -1,3 +1,9 @@
+body{
+    background-image:url('../img/chatapp_background.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    /* background-position: 100% 100%; */
+}
 .header{
     display:flex;
     flex-direction: row;
@@ -114,8 +120,10 @@
     text-align: center;
     justify-content: space-around;
     align-items: center;
-    padding:3px;
+    padding:15px;
     margin-top:10px;
+    background-color: white;
+    border-radius:20px;
 }
 
 .all-rooms .child-room> .room-type > p> a{

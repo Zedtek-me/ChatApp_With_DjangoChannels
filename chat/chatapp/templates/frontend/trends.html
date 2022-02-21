@@ -66,9 +66,11 @@ Trends
         }
 
         .upperTrends{
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            justify-content: space-between;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top:6%;
         }
 
         .upperTrends .chatty{
@@ -102,17 +104,36 @@ Trends
             color:rgb(39, 117, 117);
             text-align: center;
             font-size:15px;
-            margin-top:10%;
-            margin-right:70%;
+            /* margin-top:10%; */
+            justify-content: space-around;
+            align-items: center;
         }
         .happening-div #htbr{
-            height:5px;
-            width:160%;
+            height:3px;
+            width:150px;
             background-color:rgb(25, 199, 141);
             margin:none;
         }
-        .happening-div> .happenings{
+        .happening-div> .h-text-n-img{
             margin-right: auto;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .h-text-n-img > .chat-img{
+            display: none;
+        }
+        .chat-img{
+            width:20%;
+            height:20%;
+            border-radius: 20px
+        }
+        
+        .suggestion{
+            max-width:250px;
+            padding:5px;
         }
 
         .trend-heads-up{
@@ -123,7 +144,7 @@ Trends
             margin-top:20px; 
             font-weight: lighter;
         }
-
+        /* mobile views */
         @media screen and (max-width:715px){
             .all-trends{
                 margin:auto;
@@ -157,13 +178,16 @@ Trends
                 margin:0px;
             }
 
-            .upperTrends> .happening-div, .happenings, #htbr, .suggestion{
+            .upperTrends> .happening-div,#htbr, .suggestion{
                 margin:auto;
             }
 
-            .happenings{
-                margin:auto;
-            }
+            .chat-img{
+            display:flex;
+            width:20px;
+            height:20px;
+        }
+
             .happening-div #htbr{
                 margin-left:25%;
                 margin-top:15px;
@@ -201,14 +225,18 @@ Trends
 
 <div class="upperTrends">
     <div class="happening-div">
-        <h1 class="happenings">What's Happening Today...</h1>
+        <div class="h-text-n-img">
+            <h1 class="happenings">What's Happening Today...</h1>
+            <img src="../../static/frontend/img/chatapp_background.jpg" alt="Hello" class="chat-img">
+        </div>
         <hr id="htbr">
         <em class="suggestion"> Go to "Rooms" through the link in the navigation bar; pick a room of your choice, and start connecting with others.</em>
     </div>
     <!-- for animation of chatty -->
     <div class="chatty">
-        <p id="chatty">CHATTIE</p>
+        <p id="chatty">CHATTUP</p>
     </div>
+    <img src="../../static/frontend/img/chatapp_background.jpg" alt="Hello" class="chat-img">
 </div>
 
 <div class="all-trends">
