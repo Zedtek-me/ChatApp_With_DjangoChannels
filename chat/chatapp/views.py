@@ -76,7 +76,6 @@ def log_out(request):
     user=request.user
     print(user)
     logout(request)
-    user.is_authenticated= False
     return redirect('/chat/')
 
 # check whether it's an update or not (in profile)
@@ -109,6 +108,7 @@ def my_profile(request):
             store_img.save()
             messages.success(request, 'You Just Posted an Image Now!')
             return redirect('/profile/')
+    print(request.session.items)
     msg= messages.get_messages(request)
     post= user.post_set.all()
     return render(request, 'profile.html', {'user' :user,'message':msg, 'post':post})
