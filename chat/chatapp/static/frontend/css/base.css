@@ -175,7 +175,7 @@ body{
 
 .foot-container #alias a{
     color: rgb(61, 238, 179);
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .footer .quick-links a {

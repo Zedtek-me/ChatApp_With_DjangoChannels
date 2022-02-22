@@ -1,15 +1,26 @@
+.header{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .welcome-div{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     width:28%;
     border-radius:20px;
     text-align: center;
     margin-top: 5%;
+    /* margin-left: 10%; */
+}
+.flash{
+    margin:auto;
 }
 
-.wel-text{
-    font-family: roboto;
-    font-size: large;
-}
 .login-container{
     display:flex;
     flex-flow: column wrap;
@@ -22,19 +33,21 @@
 .login-container span >h1{
     color:rgb(39, 117, 117);
     font-family: roboto;
-    font-weight: 200;
+    font-weight: 500;
+    font-size: larger;
     align-self: center;
 }
 .welcome-div #break{
     margin-left:10px;
     margin-top:1px;
     height:2px;
+    width:90%;
     background-color:rgb(25, 199, 141);
 }
 .input-cont{
     background-color:rgb(39, 117, 117);
-    width:600px;
-    height:50vh;
+    width:50%;
+    height:50%;
     border:2px rgb(25, 199, 141) dotted;
     border-radius: 10px;
     display: flex;
@@ -50,8 +63,8 @@
 .input-cont .form{
     display: flex;
     flex-flow: wrap column;
-    align-items: center;
-    align-content:center;
+    justify-content: center;
+    align-items:center;
     margin:auto;
     font-family: roboto;
     font-weight: 100;
@@ -112,11 +125,44 @@
 /* media queries */
 
 @media only screen and (max-width:715px){
-    .login-container{
-
+    *{
+        margin:0px;
     }
-    .login-container #break{
-        width:70%;
+
+    .header {
+       flex-wrap: nowrap;
+    }
+    /* parent container */
+    .login-container{
+        margin:auto;
+        margin-top:22%;
+        width:80%;
+    }
+
+    /* parent to the form that wraps all input elements */
+    .input-cont{
+        width:100%;
+    }
+    /* container holding the welcome message and the horizontal element */
+   .welcome-div{
+       margin-left: 40%;
+       max-width: 40%;
+   }
+    #break{
+        width:58%;
+    }
+    /* parent from element */
+    .input-cont form{
+        margin:auto;
+    }
+
+    /* children within the form element */
+    .guide{
+        margin-left:13%;
+        width:100%;
+    }
+    .user-details, .btn-div{
+        width:70%
     }
     
 }

@@ -76,6 +76,7 @@ def log_out(request):
     user=request.user
     print(user)
     logout(request)
+    user.is_authenticated= False
     return redirect('/chat/')
 
 # check whether it's an update or not (in profile)
