@@ -24,7 +24,6 @@ socket.onmessage= function(event){
         paragraph.setAttribute('id', 'response')
         paragraph.setAttribute('onopen', '')
         paragraph.innerHTML="<b class='u-name'>" + data.user + "</b>" + ': ' + data.message
-        console.log(paragraph.innerHTML)
         paragAndImg.appendChild(img)
         paragAndImg.appendChild(paragraph)
 

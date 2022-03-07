@@ -16,30 +16,30 @@
     <header class="header">
         <a href=''><img src="../../static/frontend/img/ZEDTEK.png" alt="logo" class='logo' style='height:40px; width:60px; border-radius:20px; background-color: white;'></a>
         <nav class='nav'>
-            <ul class='nav-items'>
-                <li><a href="http://localhost:8000/logout/" class='logout'><i class="fas fa-sign-out-alt" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Logout</a></li>
-                <li><a href="http://localhost:8000/chat/trend/"><i class="fas fa-cloud-sun-rain" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Trendings</a></li>
-                <li><a href="http://localhost:8000/chat/rooms"><i class="fas fa-person-booth" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Rooms</a></li>
-                <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>{{user}}</a></li>
+            <ul class='nav-itemz'>
+                <li><a href="/logout/" class='logout'><i class="fas fa-sign-out-alt" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Logout</a></li>
+                <li><a href="/chat/trend/"><i class="fas fa-cloud-sun-rain" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Trendings</a></li>
+                <li><a href="/chat/rooms"><i class="fas fa-person-booth" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Rooms</a></li>
+                <li><a href="/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>{{user}}</a></li>
             </ul>
         </nav>
-        <!-- for mobile -->
-        <div class='mobile-nav'>
-            <div class='mobile-toggle' onclick='toggle()'>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="nav-links" >            
-                <ul class='nav-items'>
-                    <li><a href="http://localhost:8000/logout/" class='logout'><i class="fas fa-sign-out-alt" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Logout</a></li>
-                    <li><a href="http://localhost:8000/chat/trend/"><i class="fas fa-cloud-sun-rain" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Trendings</a></li>
-                    <li><a href="http://localhost:8000/chat/rooms"><i class="fas fa-person-booth" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Rooms</a></li>
-                    <li><a href="http://localhost:8000/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>{{user}}</a></li>
-                </ul>
-            </div>
+        <!-- for toggling -->
+        <div class='mobile-toggle' onclick='toggle()'>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </header>
+    <!-- for mobile -->
+    
+    <div class='mobile-nav'>
+        <ul class='nav-items'>
+            <li><a href="/logout/" class='logout'><i class="fas fa-sign-out-alt" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>Logout</a></li>
+            <li><a href="/chat/trend/"><i class="fas fa-cloud-sun-rain" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Trendings</a></li>
+            <li><a href="/chat/rooms/"><i class="fas fa-person-booth" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>  Rooms</a></li>
+            <li><a href="/chat/profile"><i class="fas fa-user-circle" style="background-color: rgb(39, 117, 117);height:15%;border-radius: 10px;"></i>{{user}}</a></li>
+        </ul>
+    </div>
     <!-- a div for those connected to a room -->
     <div class="connected-ones">
         <h3 id="people">People connected</h3>

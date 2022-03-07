@@ -7,7 +7,7 @@
     background-color: rgb(16, 161, 113);
     margin-top:70px;
     color:white;
-    font-family: dreamy;
+    font-family: roboto;
     font-weight:100;
     position:fixed;
     left:0;
@@ -15,6 +15,8 @@
     top:0;
     align-items: center;
     justify-content: center;
+    text-align:center;
+    padding:8px;
 }
 
 /* the 'is typing functionality' */
@@ -22,7 +24,7 @@
     display:none;
     flex-flow: column wrap;
     color:white;
-    font-family: dreamy;
+    font-family: roboto;
     font-style: italic;
     justify-content: center;
 }
@@ -34,6 +36,7 @@
     justify-content:center;
     align-items: center;
     height:600px;
+    width:100%;
     margin:auto;
     margin-top:15%;
     padding: auto;
@@ -51,7 +54,7 @@
     background-color: white;
     margin:auto;
     padding-left:10px;
-    font-family: dreamy;
+    font-family: roboto;
     font-size:20px;
     flex:1 1 0;
 }
@@ -72,10 +75,10 @@
     justify-content: center;
     align-items: center;
     margin:auto;
-    font-family: dreamy;
+    font-family:roboto;
     font-size:10px;
     width:35%;
-    height:5%;
+    height:30px;
     background-color: rgb(17, 172, 120);
     border-radius:45px;
     flex:1 1 0;
@@ -86,7 +89,7 @@
     display:flex;
     flex-flow:column wrap;
     justify-content: center;
-    font-family: dreamy;
+    font-family: roboto;
     background-color: rgb(39, 117, 117);
     color:white;
     border:1px solid rgb(17, 172, 120);
@@ -102,10 +105,10 @@
 }
 
 /* the text area where messages are typed */
-.body-items .msg-box{
+.input-cont .msg-box{
     border: 2px solid rgb(39, 117, 117);
     border-radius: 45px;
-    width:200px;
+    width:50%;
     height:30px;
     padding:20px;
     font-family: dreamy;
@@ -131,19 +134,18 @@
 
 /* footer */
 .footer{
-    position: relative;
-    bottom:0;
-    right:0;
-    left:0;
     width: 100vw;
     height:30vh;
     margin-top:18%;
 }
 
 @media screen and (max-width:715px) and (max-width:768px){ 
-
+    .mobile-nav{
+        top:0px;
+        margin-top:0px;
+    }
     .room-body{
-        width:100vw;
+        width:100%;
         margin:auto;
         margin-bottom:15%
     }
@@ -151,6 +153,7 @@
     .room-body .connected-ones{
         height:18%;
         width: 100%;
+        justify-content: space-around;
     }
     .room-body .body-items{
         margin-top:30%;
@@ -161,31 +164,26 @@
         margin:auto;
         margin-top: 5em;
     }
-    .body-items .input-cont{
-        width:200px;
-        height:100px;
+    .body-items > div.input-cont{
+        width:80%;
+        height:25px;
         margin-bottom:15%;
         padding:none;
+        background-color:none;
     }
     .input-cont span#btn-icon{
-        width:15%;
+        width:50px;
         margin:auto;
         align-self: center;
         margin-left:32px;
     }
     .input-cont .msg-box{
-        width:20%;
+        width:30%;
     }
 
-    /* .chat-cont>#response{
-        width:100%;
-    } */
+    
     .footer{
-        margin-top: 5%;
-        margin-bottom:0px;
-        bottom:0;
         width:100%;
         height:40vh;
-        padding:0px;
     }
 }

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import UserSerializer, MessagesSerializer
-from chatapp.models import UserProfile, Messages
+from chatapp.models import Messages
 from django.contrib.auth.models import User
 
 
