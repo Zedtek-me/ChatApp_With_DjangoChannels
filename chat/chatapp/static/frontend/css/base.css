@@ -6,6 +6,38 @@ body{
     position: relative;
     /* background-position: 100% 100%; */
 }
+
+/* flash messages */
+
+.success{
+    text-align: center;
+    background-color: lightgreen;
+    color: black;
+    width:fit-content;
+    height: fit-content;
+    padding:8px;
+    border-radius:15px;
+}
+
+.error{
+    text-align: center;
+    background-color: red;
+    color: white;
+    width:fit-content;
+    height: fit-content;
+    padding:8px;
+    border-radius:15px;
+}
+
+.info{
+    text-align: center;
+    background-color:lightblue;
+    color: black;
+    width:fit-content;
+    height: fit-content;
+    padding:8px;
+    border-radius:15px;
+}
 .header{
     display:flex;
     flex-direction: row;
