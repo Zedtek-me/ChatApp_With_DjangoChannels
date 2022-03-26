@@ -1,12 +1,10 @@
-from email import message
-from email.mime import image
-import re
 from django.shortcuts import render, redirect
 from .models import UserProfile, UploadedImage, Post, Messages
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db import IntegrityError
 import os
 
 # Create your views here.
@@ -35,7 +33,7 @@ def index(request):
                     except FileNotFoundError :
                         print(user.userprofile.image.save())
                 messages.error(request, 'Username or Password is wrong!')
-                return redirect('http://localhost:8000/chat/')
+                return redirect('/chat/')
             
        elif request.POST.get('sign up'):
             return redirect('/signup/')
@@ -57,13 +55,13 @@ def signup(request):
         email=request.POST.get('email')
         password=request.POST.get('pass1')
         confirm_pass= request.POST.get('pass_confirmation')
-        # validating that username and email are unique, and tha passwords match
-        if username in User.objects.all():
-            messages.error(request, 'Username is already taken.')
-            return redirect('/signup')
-        # storing into the database if username is unique
+        # storing into the database if passwords match and username is unique
         if password == confirm_pass:
-            User.objects.create_user(first_name=name, last_name=surname, username=username, password=password, email=email)
+            try:
+                User.objects.create_user(first_name=name, last_name=surname, username=username, password=password, email=email)
+            except IntegrityError:
+                messages.error(request, 'Username is already taken.')
+                return redirect('/signup')
             messages.success(request, 'You successfully signed up')
             return redirect('/chat')
         else: 
