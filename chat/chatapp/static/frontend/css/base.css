@@ -60,7 +60,7 @@ body{
     display:none;
 }
 
-.mobile-nav{
+.m-nav{
     display:none;
 }
 .header .chattie{
@@ -515,9 +515,9 @@ body{
         height:5px;
     }
     
-    /* turn off the mobile nav until clicked */
+    /* toggle mobile nav clicked */
     .mobile-nav{
-        display:none;
+        display:flex;
         flex-flow: column nowrap;
         position:absolute;
         justify-content: center;

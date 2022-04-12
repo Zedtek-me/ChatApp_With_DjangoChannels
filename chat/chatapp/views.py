@@ -7,8 +7,6 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 import os
 
-# Create your views here.
-
 
 def index(request):
     # getting the users input at the index page
@@ -39,7 +37,6 @@ def index(request):
             return redirect('/signup/')
     else:
         if request.user.is_authenticated:
-            print(request.session.get_expiry_date())
             return redirect('/trend/')
         else:
             message= messages.get_messages(request)
@@ -72,7 +69,6 @@ def signup(request):
 
 def log_out(request):
     user=request.user
-    print(user)
     logout(request)
     return redirect('/chat/')
 
@@ -106,7 +102,6 @@ def my_profile(request):
             store_img.save()
             messages.success(request, 'You Just Posted an Image Now!')
             return redirect('/profile/')
-    print(request.session.items)
     msg= messages.get_messages(request)
     post= user.post_set.all()
     return render(request, 'profile.html', {'user' :user,'message':msg, 'post':post})
@@ -123,7 +118,6 @@ def rooms(request):
 def trends(request):
     user= request.user
     post= user.post_set.all()
-    print(request.user)
     return render(request, 'trends.html', {'user':user,'post':post})
 
 # for passwords forgotten
@@ -223,6 +217,8 @@ def science(request):
         msgs= Messages.objects.all()
         return render(request, 'science.html', {'user':user, 'msgs': msgs})
     return render(request, 'science.html', {'user':user})
+
+
 @login_required(login_url='/chat/')
 def general(request):
     user= request.user
@@ -230,6 +226,8 @@ def general(request):
         msgs= Messages.objects.all()
         return render(request, 'general.html', {'user':user, 'msgs': msgs})
     return render(request, 'general.html', {'user':user})
+
+
 @login_required(login_url='/chat/')
 def personality(request):
     user= request.user
@@ -237,6 +235,8 @@ def personality(request):
         msgs= Messages.objects.all()
         return render(request, 'personality.html', {'user':user, 'msgs': msgs})
     return render(request, 'personality.html', {'user':user})
+
+
 @login_required(login_url='/chat/')
 def relationship(request):
     user= request.user
@@ -244,6 +244,8 @@ def relationship(request):
         msgs= Messages.objects.all()
         return render(request, 'relationship.html', {'user':user, 'msgs': msgs})
     return render(request, 'relationship.html', {'user':user})
+
+
 @login_required(login_url='/chat/')
 def philosophy(request):
     user= request.user

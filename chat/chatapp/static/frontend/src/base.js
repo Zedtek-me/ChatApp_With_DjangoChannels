@@ -1,13 +1,7 @@
 
 // for mobile display
 function toggle(){
-    const linksCont= document.querySelector(".mobile-nav")
-    if (linksCont.style.display === "none"){
-       linksCont.style.display = "flex"
-    }
-    else{
-        linksCont.style.display = "none";
-    }
+    const linksCont= document.querySelector(".m-nav").classList.toggle('mobile-nav')
     
 }
     
