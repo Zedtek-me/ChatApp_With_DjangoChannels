@@ -173,7 +173,7 @@ body{
 .all-rooms .child-room img{
    width:50%;
    height:20%;
-   border: 2px rgb(39, 117, 117)solid;
+   border: 2px rgb(39, 117, 117) solid;
    border-radius: 20px;
 }
 
