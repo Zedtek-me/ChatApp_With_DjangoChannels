@@ -291,6 +291,31 @@ body{
     flex: 1 1 auto;
 }
 
+.edits{
+    display: none;
+}
+.edit-options{/*a class to toggle when the edit arrow is clicked--> this displays the edit options for each post*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    position: absolute;
+    top:25;
+    left: 80;
+    right: 8;
+    background-color: aliceblue;
+    color: black;
+    font-weight: 100;
+    font-size: 11px;
+    border-radius: 5px;
+    width: 100%;
+    padding:5px;
+}
+
+.prod-tog{
+    z-index: 500;
+}
 
 /* settings file that replaces the old button */
 .settings-cont{

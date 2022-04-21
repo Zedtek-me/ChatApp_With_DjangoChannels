@@ -35,3 +35,26 @@ function toggle(){
 function postSubmit(){
     let submit=document.querySelector('.hidden-btn').click()
 }
+
+// the toggles for editing each post.
+const toggleEdit= ()=>{
+    let toggleArrows= document.querySelectorAll('.prod-tog')
+    let editDivs= document.querySelectorAll('.edits')
+    for(let count= 0; count < toggleArrows.length; count++){
+        toggleArrows[count].addEventListener('click', (e)=>{
+            editDivs[count].classList.toggle('edit-options');
+            toggleArrows[count].classList.toggle('fa-angle-up')
+            toggleArrows[count].classList.toggle('fa-angle-down')
+        })
+    }
+}
+toggleEdit()
+
+// form submission event for product removal
+let removeBtns= document.querySelectorAll('.remove-post')
+let formBtns= document.querySelectorAll('#removePost')
+for(let i= 0; i < removeBtns.length; i++){
+    removeBtns[i].addEventListener('click', (e)=>{
+       formBtns[i].click()
+    })
+}

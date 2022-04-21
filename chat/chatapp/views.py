@@ -253,3 +253,11 @@ def philosophy(request):
         msgs= Messages.objects.all()
         return render(request, 'philosophy.html', {'user':user, 'msgs': msgs})
     return render(request, 'philosophy.html', {'user':user})
+
+
+def remove_post(request):
+    user= request.user
+    postId= int(request.GET.get('posts_id'))
+    Post.objects.get(id=postId).delete()
+    messages.info(request, 'post successfully removed.')
+    return redirect('/profile/')

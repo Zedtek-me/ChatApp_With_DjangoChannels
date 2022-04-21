@@ -16,8 +16,9 @@ urlpatterns= [path('', views.index, name='login page'),
               path('science/', views.science, name='science'),
               path('person/', views.personality, name='personality'),
               # path('post-img/', views.post_img, name=' posting image'),
-              path('uploaded/', views.uploaded, name=' my uploaded images'),
-              path('settings/', views.settings, name=' settings')
+              path('uploaded/', views.uploaded, name='my uploaded images'),
+              path('settings/', views.settings, name='settings'),
+              path('remove_post/', views.remove_post, name='remove_post')
             ]
 
 if settings.DEBUG:
