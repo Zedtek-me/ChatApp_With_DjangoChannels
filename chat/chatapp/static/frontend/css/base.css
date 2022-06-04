@@ -60,9 +60,6 @@ body{
     display:none;
 }
 
-.m-nav{
-    display:none;
-}
 .header .chattie{
     background-color: rgb(39, 117, 117);
     color:rgb(255, 255, 255);
@@ -531,6 +528,7 @@ body{
         flex-flow: column wrap;
         align-items: center;
         justify-content: center;
+        z-index: 1200;
     }
 
     .mobile-toggle> div{
@@ -539,25 +537,28 @@ body{
         width:25px;
         height:5px;
     }
-    
-    /* toggle mobile nav clicked */
-    .mobile-nav{
+    /* mobile navigation */
+    .m-nav{
         display:flex;
-        flex-flow: column nowrap;
-        position:absolute;
+        flex-direction: column;
         justify-content: center;
+        position:absolute;
         top:10px;
-        bottom:1700px;
+        right:0;
+        left:600px;
         height: fit-content;
         padding:10px;
-        right:0;
-        left:20%;
         margin-top:5px;
         background-color: rgb(39, 117, 117);
-        transition : all 2s linear;
+        transition : all .45s ease-in-out;
         color:white;
         border-radius:10px;
         z-index:1000;
+    }
+    
+    /* toggle mobile nav clicked */
+    .mobile-nav{
+        left: 50%;
     }
 
     .nav-items{
