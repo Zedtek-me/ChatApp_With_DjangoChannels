@@ -160,7 +160,6 @@ def settings(request):
                 # and check the conditions that: the uploaded image is in the profile photo directory 
                 # and it also has the name of the current userprofile image. If so, delete the current image from
                 # the profile photo folder and remove it from being the profile image of the user. Then use the new one.This is to avoid duplicates, and to save space
-                profile_photos= os.listdir('Profile_Media/profile_pics')
                 if bool(str(newName.userprofile.image).split(image_name)):
                     # delete the present image associated with the user from the app storage and remove its association with profile.
                     print(image)
@@ -186,7 +185,6 @@ def settings(request):
             messages.info(request, 'Your username was changed successfully!')
             return redirect('/profile/')
         elif image:
-            profile_photos= os.listdir('Profile_Media/profile_pics')
             if bool(str(user.userprofile.image).split(image_name)):
                 # delete the present image associated with the user from the app storage and remove its association.
                 # user.userprofile.image.delete()
