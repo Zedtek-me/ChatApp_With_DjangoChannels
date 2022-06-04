@@ -5,6 +5,6 @@
     <img src="../../static/frontend/img/ZEDTEK.png" alt="logo" class="logo" style='height:40px; width:60px; border-radius:20px; background-color: white;'>
     <h1 class="chattie">CHATTUP</h1>
     {%block signin%}<nav class="sign-in"><a href='/chat' id="sign-in" style='background-color: rgb(39, 117, 117);border:2px solid white; border-radius: 20px;padding:8px;'>sign-In</a></nav>{%endblock%}
-    <nav class="forgot-pass"><a href="/chat/recovery" id="forgot-pass" style='background-color: rgb(39, 117, 117);border:2px solid white; border-radius: 20px;padding:8px;color:white;text-decoration: none;font-family: dreamy;font-size:20px;'>{%block recovery%}Forgot Pasword{%endblock%}</a></nav>
+    {%block recov-info%}<nav class="forgot-pass"><a href="/chat/recovery" id="forgot-pass" style='background-color: rgb(39, 117, 117);border:2px solid white; border-radius: 20px;padding:8px;color:white;text-decoration: none;font-family: dreamy;font-size:20px;'>{%block recovery%}Forgot Pasword{%endblock%}</a></nav>{%endblock%}
 </header>
 {%endblock%}

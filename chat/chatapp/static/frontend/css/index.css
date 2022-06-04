@@ -122,6 +122,44 @@
     width: 800px;
 }
 
+/* forgot password style */
+.forgot-pass-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    padding:50px;
+    margin-top:50%;
+    text-align: center;
+    font-family: roboto;
+}
+
+/* container holding recovery form */
+.forgot-pass-cont>*{
+    margin: 10px;
+}
+
+/* recoery form itself */
+.recovery-form{
+    display: flex;
+    flex-direction: column;
+    place-items: center center;
+    margin: auto;
+    align-self: center;
+}
+/* styling all within the recovery form, including when it's focused */
+.recovery-form>*, .recovery-form>input:focus{
+    margin:5px;
+    height: 35px;
+    border-radius: 15px;
+    border: solid 1px rgb(25, 199, 141);
+    padding: 10px;
+    text-align: center;
+    color: rgb(39, 117, 117);
+}
 /* media queries */
 
 @media only screen and (max-width:715px){
@@ -166,3 +204,4 @@
     }
     
 }
+

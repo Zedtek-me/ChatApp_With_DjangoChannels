@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render, redirect
 from .models import UserProfile, UploadedImage, Post, Messages
 from django.contrib import messages
@@ -6,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 import os
+from django.core.mail import send_mail
 
 
 def index(request):
@@ -122,8 +124,9 @@ def trends(request):
 
 # for passwords forgotten
 def forgot_pass(request):
+    msg= messages.get_messages(request)
     user= request.user
-    return render(request, 'forgot_pass.html', {'user':user})
+    return render(request, 'forgot_pass.html', {'user':user, 'msgs': msg})
 
 
 # Seeing user uploaded images
@@ -261,3 +264,13 @@ def remove_post(request):
     Post.objects.get(id=postId).delete()
     messages.info(request, 'post successfully removed.')
     return redirect('/profile/')
+
+
+def recover_pass(request):
+    # msg= messages.get_messages()
+    # context={'msgs': msg}
+    if request.method== 'POST':
+        email=request.POST.get('recovery-email')
+        # send eamil accordingly, after setting up the smtp server
+        messages.info(request, str(email))
+        return redirect('recovery')

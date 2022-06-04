@@ -2,6 +2,22 @@
 {%block title%}
 Recovery
 {%endblock%}
-{%block recovery%}
-Recover password
+{%block recov-info%}
+{%endblock%}
+
+<!-- body here -->
+{%block body%}
+    <div class="forgot-pass-cont">
+        {%if msgs%}
+            {%for msg in msgs%}
+                <div class="{%if msg.tags%}{{msg.tags}}{%endif%}">recovery info has been sent to <strong>{{msg}}!</strong></div>
+            {%endfor%}
+        {%endif%}
+        <p class="recov-guide">Insert a correct email address below, for info on recovery</p>
+        <form action="{%url 'recov-info'%}" method="post" class="recovery-form">
+            {%csrf_token%}
+            <input type="email" name="recovery-email" placeholder="put in an email to send recovery info..." inputmode="email" required>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
 {%endblock%}
