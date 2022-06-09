@@ -38,7 +38,7 @@ function postSubmit(){
 
 // the toggles for editing each post.
 const toggleEdit= ()=>{
-    let toggleArrows= document.querySelectorAll('.prod-tog')
+    let toggleArrows= document.querySelectorAll('.post-tog')
     let editDivs= document.querySelectorAll('.edits')
     for(let count= 0; count < toggleArrows.length; count++){
         toggleArrows[count].addEventListener('click', (e)=>{
@@ -51,10 +51,26 @@ const toggleEdit= ()=>{
 toggleEdit()
 
 // form submission event for product removal
-let removeBtns= document.querySelectorAll('.remove-post')
-let formBtns= document.querySelectorAll('#removePost')
-for(let i= 0; i < removeBtns.length; i++){
-    removeBtns[i].addEventListener('click', (e)=>{
-       formBtns[i].click()
-    })
+function postEdit(){
+    let removeBtns= document.querySelectorAll('#delete-quest')
+    let formBtns= document.querySelectorAll('#removePost')
+    let confirmCont= document.querySelectorAll('.confirm-del')
+    let yesCont= document.querySelectorAll("[name='yesBtn']")
+    let noCont= document.querySelectorAll("[name='noBtn']")
+    for(let i= 0; i < removeBtns.length; i++){
+        removeBtns[i].addEventListener('click', (e)=>{
+            confirmCont[i].style.display= 'flex'//displays the confirmation box
+
+            yesCont[i].addEventListener('click', (e)=>{//checks whether yes is clicked
+                formBtns[i].click()// submit post for deletion if yes
+            })
+
+            noCont[i].addEventListener('click', (e)=>{//in case no is chosen
+                confirmCont[i].style.display= 'none'
+            })
+        })
+    }
+
 }
+
+postEdit()

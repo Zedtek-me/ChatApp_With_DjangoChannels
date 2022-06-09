@@ -246,20 +246,20 @@ Trends
 <h5 class="trend-heads-up">items you post start from here...</h5>
 <div class="posts">
     {%for item in post%}
-    <div class="post-cont">
-        {%if item.image%}
-        <p class="postDate">Posted on {{item.date}}, by {{item.owner}}(me)</p>
-        <img src="{{item.image.url}}" alt="posted-item" class="posted-img">
-        <div class="writeup">
-            <p class="content">{{item.content}}</p>
+        <div class="post-cont">
+            {%if item.image%}
+            <p class="postDate">Posted on {{item.date}}, by {{item.owner}}(me)</p>
+            <img src="{{item.image.url}}" alt="posted-item" class="posted-img">
+            <div class="writeup">
+                <p class="content">{{item.content}}</p>
+            </div>
+            {%else%}
+            <p class="postDate">Posted on {{item.date}}, by {{item.owner}}(me)</p>
+            <div class="writeup">
+                <p class="content">{{item.content}}</p>
+            </div>
+            {%endif%}
         </div>
-        {%else%}
-        <p class="postDate">Posted on {{item.date}}, by {{item.owner}}(me)</p>
-        <div class="writeup">
-            <p class="content">{{item.content}}</p>
-        </div>
-        {%endif%}
-    </div>
     {%endfor%}
 </div>
 

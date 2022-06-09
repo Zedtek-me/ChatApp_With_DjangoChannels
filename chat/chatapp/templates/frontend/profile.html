@@ -49,30 +49,41 @@ Profile
     <!-- now the posted items -->
     <div class="posts">
         {%for item in post%}
-        <div class="post-cont">
-            <div class="edits">
-                <div class="optionz remove-post">Delete Post</div>
+            <div class="post-cont">
+                <!-- container for editing posts -->
+                <div class="edit-post-cont">
+                    <i class="fa-solid fa-angle-down post-tog"></i>
+                    <div class="edits">
+                        <p id="update-post">Update this post</p>
+                        <p id="delete-quest">Delete this post?</p>
+                    </div>
+                    <!-- dialogue box imitator, to confirm intention for deletion -->
+                    <div class="confirm-del">
+                        <p id="confirm-quest">Are you sure you want to delete this post?</p>
+                        <div class="choice">
+                            <input type="button" value="Yes" name="yesBtn">
+                            <input type="button" value="No" name="noBtn">
+                        </div>
+                    </div>
+                    <!-- post deletion form -->
+                    <form action="{%url 'delete post'%}" method="get" class="edit-form">
+                        <input type="hidden" name="post-id" value="{{item.id}}">
+                        <input type="submit" name="delete" value="{{item.content}}" id="removePost">
+                    </form>
+                </div>
+                {%if item.image%}
+                <p class="postDate">Posted on {{item.date}}, by {{item.owner}}(me)</p>
+                <img src="{{item.image.url}}" alt="posted-item" class="posted-img">
+                <div class="writeup">
+                    <p class="content">{{item.content}}</p>
+                </div>
+                {%else%}
+                <p class="postDate">Posted on {{item.date}}, by {{item.owner}}(me)</p>
+                <div class="writeup">
+                    <p class="content">{{item.content}}</p>
+                </div>
+                {%endif%}
             </div>
-            <!-- form for post removal -->
-            <div class="edit-form">
-                <form action="{%url 'remove_post'%}" method="get" style="display: none;">
-                    <input type="hidden" name="post_id" value="{{item.id}}">
-                    <button type="submit" id="removePost">remove_post</button>
-                </form>
-            </div>
-            {%if item.image%}
-            <p class="postDate">Posted on {{item.date}}, by {{item.owner}}(me)</p>
-            <img src="{{item.image.url}}" alt="posted-item" class="posted-img">
-            <div class="writeup">
-                <p class="content">{{item.content}}</p>
-            </div>
-            {%else%}
-            <p class="postDate">Posted on {{item.date}}, by {{item.owner}}(me)</p>
-            <div class="writeup">
-                <p class="content">{{item.content}}</p>
-            </div>
-            {%endif%}
-        </div>
         {%endfor%}
     </div>
 </div>

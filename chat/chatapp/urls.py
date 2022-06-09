@@ -18,7 +18,7 @@ urlpatterns= [path('', views.index, name='login page'),
               # path('post-img/', views.post_img, name=' posting image'),
               path('uploaded/', views.uploaded, name='my uploaded images'),
               path('settings/', views.settings, name='settings'),
-              path('remove_post/', views.remove_post, name='remove_post'),
+              path('remove_post/', views.remove_post, name='delete post'),
               path('recov-info/', views.recover_pass, name='recov-info')
             ]
 

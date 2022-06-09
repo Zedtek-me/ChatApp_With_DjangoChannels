@@ -257,16 +257,16 @@ def philosophy(request):
 
 def remove_post(request):
     user= request.user
-    postId= int(request.GET.get('posts_id'))
+    postId= int(request.GET.get('post-id'))
     Post.objects.get(id=postId).delete()
-    messages.info(request, 'post successfully removed.')
+    messages.success(request, 'post successfully removed.')
     return redirect('/profile/')
 
 
 def recover_pass(request):
     # msg= messages.get_messages()
     # context={'msgs': msg}
-    if request.method== 'POST':
+    if request.method == 'POST':
         email=request.POST.get('recovery-email')
         # send eamil accordingly, after setting up the smtp server
         messages.info(request, str(email))

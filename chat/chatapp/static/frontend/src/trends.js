@@ -38,5 +38,3 @@ fetch(request)
         })   
     })
 
-
-    console.log(process.env)
