@@ -138,7 +138,7 @@ MEDIA_URL= '/Media/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'Profile_Media')
 
 STATIC_URL = '/static/'
-STATIC_DIR= [os.path.join(BASE_DIR, 'chatapp')]
+STATICFILES_DIR= [os.path.join(BASE_DIR, 'chatapp')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
