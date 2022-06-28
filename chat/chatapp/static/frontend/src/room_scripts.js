@@ -6,7 +6,7 @@ const host= window.location.host
 
 // to get the appropriate scheme of the protocol--> secure or not
 let endPoint;
-if (window.location.href.split(':')[0]=='https'){
+if (window.location.href.split(':')[0]==='https'){
     endPoint= `wss://${String(host)}/chat/`
 }
 else{
