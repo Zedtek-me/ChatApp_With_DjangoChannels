@@ -3,7 +3,15 @@ var roomUrl= window.location.pathname
 
 // dynamically creating an endpoint
 const host= window.location.host
-const endPoint= `ws://${String(host)}/chat/`
+
+// to get the appropriate scheme of the protocol--> secure or not
+let endPoint;
+if (window.location.href.split(':')[0]=='https'){
+    endPoint= `wss://${String(host)}/chat/`
+}
+else{
+    endPoint= `ws://${String(host)}/chat/`
+}
 
 // instatiation and events emition
 const socket= new WebSocket(endPoint)
