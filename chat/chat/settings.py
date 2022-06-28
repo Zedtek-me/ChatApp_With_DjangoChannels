@@ -141,7 +141,7 @@ USE_TZ = True
 MEDIA_URL= '/Media_files/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'Profile_Media')
 
-STATIC_URL = '/files/'
+STATIC_URL = '/chatFiles/'
 STATICFILES_DIR= [os.path.join(BASE_DIR, 'chatapp')]
 # aws
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
@@ -150,7 +150,7 @@ AWS_STORAGE_BUCKET_NAME='commercebucket'
 AWS_S3_ACCESS_KEY_ID= os.environ.get('AWS_S3_ACCESS_KEY_ID')
 AWS_S3_SECRET_ACCESS_KEY= os.environ.get('AWS_S3_SECRETE_ACCESS_KEY')
 AWS_S3_FILE_OVERWRITE= False
-AWS_LOCATION= 'files'
+AWS_LOCATION= 'chatFiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
