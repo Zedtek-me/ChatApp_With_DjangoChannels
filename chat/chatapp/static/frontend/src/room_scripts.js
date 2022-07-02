@@ -52,8 +52,10 @@ socket.onmessage= function(event){
 // send text data to the server
 function sendText(){
     let text= document.getElementsByClassName("msg-box")[0]
-    socket.send(JSON.stringify({message: text.value}))
-    text.value=""
+    if (text.value && text.value != '0'){
+        socket.send(JSON.stringify({message: text.value}))
+        text.value=""
+    }
 }
 // keyboard enter key
 function keyEvent(event){
