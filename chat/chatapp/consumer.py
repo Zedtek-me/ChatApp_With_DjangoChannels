@@ -1,4 +1,3 @@
-from email import message
 from channels.generic.websocket import AsyncWebsocketConsumer
 import json
 from .models import Messages
