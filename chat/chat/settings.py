@@ -14,6 +14,7 @@ DJANGO_SETTINGS_MODULE= 'chat.settings'
 from pathlib import Path
 import os
 import dj_database_url
+import django_heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -156,3 +157,4 @@ AWS_LOCATION= 'chatFiles'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+django_heroku.settings(locals())

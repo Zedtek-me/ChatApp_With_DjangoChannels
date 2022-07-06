@@ -1,1 +1,1 @@
-web: daphne -p 8001 chat.asgi.application
+web: daphne -p 8001 chat.asgi
