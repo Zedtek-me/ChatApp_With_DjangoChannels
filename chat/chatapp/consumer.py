@@ -8,8 +8,9 @@ class ConsumerServer(AsyncWebsocketConsumer):
     # to accept the connection from the client
     async def connect(self):
         await self.channel_layer.group_add('Philosophy', self.channel_name)
-        print(self.scope['user'])
+        user= self.scope['user']
         await self.accept()
+        await self.send(json.dumps({'current_user': user}))#send the current user for display at te frontend, as 'users connected.'
         
     # broadcasting to the group
     async def  receive(self, text_data):

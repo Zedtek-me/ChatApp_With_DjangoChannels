@@ -16,6 +16,18 @@ else{
 // instatiation and events emition
 const socket= new WebSocket(endPoint)
 
+// get the connected user and display at the frontend 
+let allUsersCont= document.querySelectorAll('.list')//container that lists the users connected.
+socket.onopen= function(e){
+    let data= JSON.parse(e.data)
+    var currentUser= data.current_user
+    // get the container for all connected users and add the current user to the connected users, below.
+    allUsersCont.textContent += `${currentUser}, `
+}
+// remove users from users list when disconnected.
+socket.onclose= function(e){
+    allUsersCont.textContent.replace(`${currentUser},`, '')
+}
 // inserting the data from the server into the chatbox
 socket.onmessage= function(event){
     let data= JSON.parse(event.data)
